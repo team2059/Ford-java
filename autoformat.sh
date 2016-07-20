@@ -18,4 +18,6 @@
 OPTS=( --mode=java -xc --style=google -j -s2 -xG -S -K -N -xn -xl -n -p -H )
 GLOB=( src/**/*.java )
 astyle $OPTS $GLOB|\grep -P '^(?!Unchanged)'
+# Get rid of newlines
+sed -i'' '/^\s*$/d' $GLOB
 \cd ->/dev/null
