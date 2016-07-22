@@ -20,10 +20,8 @@ public class OI {
       joystickButtons[0][i] = new JoystickButton(joysticks[0], i + 1);
       joystickButtons[1][i] = new JoystickButton(joysticks[1], i + 1);
     }
-    // Start logging with button1, stop with button2
-    Command logEncoder = new LogEncoder();
-    joystickButtons[0][0].whenPressed(logEncoder);
-    joystickButtons[0][1].cancelWhenPressed(logEncoder);
+    // Print log when button 1 pressed
+    joystickButtons[0][0].whenPressed(new LogEncoder());
   }
 }
 // vim: sw=2:ts=2:sts=2
