@@ -1,15 +1,16 @@
 package org.usfirst.frc.team2059.robot.commands;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
-public class LogEncoder  extends CommandBase {
-  public LogEncoder() {
+public class ResetEncoder extends CommandBase {
+  public ResetEncoder() {
     requires(encoderbase);
   }
   protected void initialize() {
   }
   protected boolean isFinished() {
-    return false;
+    return true;
   }
   protected void execute() {
+    encoderbase.resetEncoder();
   }
   protected void end() {
   }
