@@ -4,7 +4,7 @@ import org.usfirst.frc.team2059.robot.commands.Drive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team2059.robot.structs.EncoderValues;
-public class Encoderbase extends Subsystem {
+public class EncoderBase extends Subsystem {
   Encoder enc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
   public void initDefaultCommand() {
     //TODO: Not sure if we need a default command, not settingo one

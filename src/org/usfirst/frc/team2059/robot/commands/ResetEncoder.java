@@ -2,7 +2,7 @@ package org.usfirst.frc.team2059.robot.commands;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 public class ResetEncoder extends CommandBase {
   public ResetEncoder() {
-    requires(encoderbase);
+    requires(encoderBase);
   }
   protected void initialize() {
   }
@@ -10,7 +10,7 @@ public class ResetEncoder extends CommandBase {
     return true;
   }
   protected void execute() {
-    encoderbase.resetEncoder();
+    encoderBase.resetEncoder();
   }
   protected void end() {
   }

@@ -3,7 +3,7 @@ import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.structs.EncoderValues;
 public class LogEncoder  extends CommandBase {
   public LogEncoder() {
-    requires(encoderbase);
+    requires(encoderBase);
   }
   protected void initialize() {
   }
@@ -13,7 +13,7 @@ public class LogEncoder  extends CommandBase {
     return true;
   }
   protected void execute() {
-    EncoderValues values = encoderbase.getValues();
+    EncoderValues values = encoderBase.getValues();
     System.out.println("==== Encoder log ====");
     System.out.println("Count     : " + values.getCount());
     System.out.println("Distance  : " + values.getDistance());
