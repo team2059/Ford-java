@@ -17,7 +17,7 @@
 # -H             : Pad header (space after if, for, while)
 OPTS=( --mode=java -xc --style=google -j -s2 -xG -S -K -N -xn -xl -n -p -H )
 GLOB=( src/**/*.java )
-astyle $OPTS $GLOB|\grep -P '^(?!Unchanged)'
+astyle $OPTS $GLOB|\grep -vE '^Unchanged'
 # Get rid of newlines
 perl -ni'' -e '/^\s*$/ || print' $GLOB
 \cd ->/dev/null
