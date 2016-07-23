@@ -3,8 +3,8 @@ public class RobotMap {
   //Drive
   public static int driveLeftMotorOne = 1;
   public static int driveLeftMotorTwo = 2;
-  public static int driveRightMotorOne = 1;
-  public static int driveRightMotorTwo = 2;
+  public static int driveRightMotorOne = 3;
+  public static int driveRightMotorTwo = 4;
   public static int driveRightEncoder = 0;
   public static int driveLeftEncoder = 1;
   //Arm

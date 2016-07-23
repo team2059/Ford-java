@@ -23,5 +23,11 @@ public class OI {
     // Print log when button 1 pressed
     joystickButtons[0][0].whenPressed(new LogEncoder());
   }
+  public Joystick[] getJoysticks() {
+    return joysticks;
+  }
+  public JoystickButton[][] getJoystickButtons() {
+    return joystickButtons;
+  }
 }
 // vim: sw=2:ts=2:sts=2

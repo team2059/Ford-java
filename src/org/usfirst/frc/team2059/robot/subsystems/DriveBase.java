@@ -2,12 +2,12 @@ package org.usfirst.frc.team2059.robot.subsystems;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.Drive;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.Talon;
 public class DriveBase extends Subsystem {
-  CANTalon leftMotorOne = new CANTalon(RobotMap.driveLeftMotorOne);
-  CANTalon leftMotorTwo = new CANTalon(RobotMap.driveLeftMotorTwo);
-  CANTalon rightMotorOne = new CANTalon(RobotMap.driveRightMotorOne);
-  CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorOne);
+  Talon leftMotorOne = new Talon(RobotMap.driveLeftMotorOne);
+  Talon leftMotorTwo = new Talon(RobotMap.driveLeftMotorTwo);
+  Talon rightMotorOne = new Talon(RobotMap.driveRightMotorOne);
+  Talon rightMotorTwo = new Talon(RobotMap.driveRightMotorOne);
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }

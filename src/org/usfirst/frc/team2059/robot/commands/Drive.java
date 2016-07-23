@@ -1,9 +1,10 @@
 package org.usfirst.frc.team2059.robot.commands;
-import edu.wpi.first.wpilibj.command.Command;
+import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.Robot;
 /**
  *
  */
-public class Drive extends Command {
+public class Drive extends CommandBase {
   public Drive() {
   }
   // Called just before this Command runs the first time
@@ -11,6 +12,13 @@ public class Drive extends Command {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
+    double x = Robot.oi.getJoysticks()[0].getRawAxis(0);
+    double y = Robot.oi.getJoysticks()[0].getRawAxis(1);
+    double z = Robot.oi.getJoysticks()[0].getRawAxis(2);
+    System.out.println("x: "+x);
+    System.out.println("y: "+y);
+    System.out.println("z: "+z);
+    driveBase.driveArcade(x, y, z, 0);
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
