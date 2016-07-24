@@ -8,11 +8,6 @@ public class LogEncoder  extends CommandBase {
   protected void initialize() {
   }
   protected boolean isFinished() {
-    //TODO: Not sure if isFinished() is checked before execute()
-    //assuming it is not,
-    return true;
-  }
-  protected void execute() {
     EncoderValues values = encoderBase.getValues();
     System.out.println("==== Encoder log ====");
     System.out.println("Count     : " + values.getCount());
@@ -21,6 +16,9 @@ public class LogEncoder  extends CommandBase {
     System.out.println("Rate      : " + values.getRate());
     System.out.println("Direction : " + values.getDirection());
     System.out.println("Stopped   : " + values.getStopped());
+    return true;
+  }
+  protected void execute() {
   }
   protected void end() {
   }

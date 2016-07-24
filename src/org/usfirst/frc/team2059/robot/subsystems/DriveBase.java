@@ -7,7 +7,7 @@ public class DriveBase extends Subsystem {
   Talon leftMotorOne = new Talon(RobotMap.driveLeftMotorOne);
   Talon leftMotorTwo = new Talon(RobotMap.driveLeftMotorTwo);
   Talon rightMotorOne = new Talon(RobotMap.driveRightMotorOne);
-  Talon rightMotorTwo = new Talon(RobotMap.driveRightMotorOne);
+  Talon rightMotorTwo = new Talon(RobotMap.driveRightMotorTwo);
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }

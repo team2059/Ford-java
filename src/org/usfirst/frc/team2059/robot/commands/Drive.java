@@ -6,6 +6,7 @@ import org.usfirst.frc.team2059.robot.Robot;
  */
 public class Drive extends CommandBase {
   public Drive() {
+    requires(driveBase);
   }
   // Called just before this Command runs the first time
   protected void initialize() {
@@ -15,9 +16,6 @@ public class Drive extends CommandBase {
     double x = Robot.oi.getJoysticks()[0].getRawAxis(0);
     double y = Robot.oi.getJoysticks()[0].getRawAxis(1);
     double z = Robot.oi.getJoysticks()[0].getRawAxis(2);
-    System.out.println("x: "+x);
-    System.out.println("y: "+y);
-    System.out.println("z: "+z);
     driveBase.driveArcade(x, y, z, 0);
   }
   // Make this return true when this Command no longer needs to run execute()

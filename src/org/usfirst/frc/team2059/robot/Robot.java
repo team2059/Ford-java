@@ -1,4 +1,5 @@
 package org.usfirst.frc.team2059.robot;
+import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -10,6 +11,7 @@ public class Robot extends IterativeRobot {
   Command autonomousCommand;
   SendableChooser chooser;
   public void robotInit() {
+    CommandBase.init();
     oi = new OI();
     chooser = new SendableChooser();
     SmartDashboard.putData("Auto mode", chooser);

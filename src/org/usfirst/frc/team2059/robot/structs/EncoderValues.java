@@ -4,6 +4,12 @@ public class EncoderValues {
   private double distance, period, rate;
   private boolean direction, stopped;
   public EncoderValues(int count, double distance, double period, double rate, boolean direction, boolean stopped) {
+    this.count = count;
+    this.distance = distance;
+    this.period = period;
+    this.rate = rate;
+    this.direction = direction;
+    this.stopped = stopped;
   }
   public int getCount() {
     return count;

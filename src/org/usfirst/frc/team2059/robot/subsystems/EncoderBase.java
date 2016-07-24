@@ -5,15 +5,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team2059.robot.structs.EncoderValues;
 public class EncoderBase extends Subsystem {
-  Encoder enc = new Encoder(0, 1, false, Encoder.EncodingType.k4X);
+  //TODO: Might not need a constructor
+  public EncoderBase() {
+  }
+  //Encoder enc = new Encoder(0, 1, false, Encoder.EncodingType.k1X);
+  Encoder enc = new Encoder(0, 1);
   public void initDefaultCommand() {
-    //TODO: Not sure if we need a default command, not settingo one
+    //TODO: Not sure if we need a default command, not setting one
     //TODO: These are just defaults, they wil lneed to be changed
-    enc.setMaxPeriod(.1);
-    enc.setMinRate(10);
-    enc.setDistancePerPulse(5);
-    enc.setReverseDirection(false);
-    enc.setSamplesToAverage(7);
+    //enc.setMaxPeriod(.1);
+    //enc.setMinRate(10);
+    //enc.setDistancePerPulse(5);
+    //enc.setReverseDirection(false);
+    //enc.setSamplesToAverage(7);
   }
   public void resetEncoder() {
     enc.reset();

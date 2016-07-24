@@ -12,9 +12,11 @@ public class OI {
   JoystickButton[][] joystickButtons;
   Joystick[] joysticks;
   public OI() {
+    joysticks = new Joystick[2];
+    joystickButtons = new JoystickButton[2][13];
     // Create joysticks
-    joysticks[0] = new Joystick(1);
-    joysticks[1] = new Joystick(2);
+    joysticks[0] = new Joystick(0);
+    joysticks[1] = new Joystick(1);
     // Create buttons
     for (int i = 0; i < 12; i++) {
       joystickButtons[0][i] = new JoystickButton(joysticks[0], i + 1);
@@ -25,6 +27,9 @@ public class OI {
   }
   public Joystick[] getJoysticks() {
     return joysticks;
+  }
+  public Joystick getJoystick(int stick) {
+    return joysticks[stick];
   }
   public JoystickButton[][] getJoystickButtons() {
     return joystickButtons;
