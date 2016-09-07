@@ -24,6 +24,7 @@ public class OI {
     }
     // Print log when button 1 pressed
     joystickButtons[0][0].whenPressed(new LogEncoder());
+//    joystickButtons[1][0].whenPressed(new 
   }
   public Joystick[] getJoysticks() {
     return joysticks;
