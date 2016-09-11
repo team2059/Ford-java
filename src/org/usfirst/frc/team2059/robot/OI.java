@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2059.robot.commands.LogEncoder;
+import org.usfirst.frc.team2059.robot.commands.MoveArm;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -24,7 +25,8 @@ public class OI {
     }
     // Print log when button 1 pressed
     joystickButtons[0][0].whenPressed(new LogEncoder());
-//    joystickButtons[1][0].whenPressed(new 
+    joystickButtons[1][0].whenPressed(new MoveArm(0.25));
+    joystickButtons[1][1].whenPressed(new MoveArm(-0.25));
   }
   public Joystick[] getJoysticks() {
     return joysticks;
