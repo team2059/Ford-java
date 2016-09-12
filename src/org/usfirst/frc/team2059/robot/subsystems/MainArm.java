@@ -9,19 +9,23 @@ public class MainArm extends PIDSubsystem {
   CANTalon armMotorRight = new CANTalon(RobotMap.armRightMotor);
   AnalogInput pot = new AnalogInput(RobotMap.armPot);
   public MainArm(){
-    super("MainArm",0.0,0.0,0.0);
+    super("MainArm",0.06,0.0,0.002);
     getPIDController().setContinuous(false);
+    //setSetpoint(15);
+    enable();
   }
   public void initDefaultCommand() {
   }
   public void moveArm(double speed){
-    armMotorLeft.set(speed);
-    armMotorRight.set(-speed);
+    armMotorLeft.set(-speed);
+    armMotorRight.set(speed);
   }
   protected double returnPIDInput(){
-    return pot.getAverageVoltage();
+    return getDegrees();
   }
   protected void usePIDOutput(double output){
+    armMotorLeft.set(-output);
+    armMotorRight.set(output);
   }
   public double getRaw(){
     return pot.getAverageVoltage();

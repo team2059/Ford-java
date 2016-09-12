@@ -15,6 +15,7 @@ public class Robot extends IterativeRobot {
     oi = new OI();
     chooser = new SendableChooser();
     SmartDashboard.putData("Auto mode", chooser);
+    SmartDashboard.putData("MainArm",CommandBase.mainArm.getPIDController());
   }
   public void disabledInit() {
   }
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("ArmAngleRaw",CommandBase.mainArm.getRaw()); 
     SmartDashboard.putNumber("ArmAngleDegrees",CommandBase.mainArm.getDegrees()); 
+    System.out.println(CommandBase.mainArm.getDegrees());
   }
   public void testPeriodic() {
     LiveWindow.run();
