@@ -16,6 +16,7 @@ public class Robot extends IterativeRobot {
     chooser = new SendableChooser();
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm",CommandBase.mainArm.getPIDController());
+    SmartDashboard.putBoolean("CompressorEnabled",true); 
   }
   public void disabledInit() {
   }
@@ -35,11 +36,13 @@ public class Robot extends IterativeRobot {
     if (autonomousCommand != null) {
       autonomousCommand.cancel();
     }
+    CommandBase.pneumatics.setCompressorEnabled(true);
   }
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("ArmAngleRaw",CommandBase.mainArm.getRaw()); 
     SmartDashboard.putNumber("ArmAngleDegrees",CommandBase.mainArm.getDegrees()); 
+    CommandBase.pneumatics.setCompressorEnabled(SmartDashboard.getBoolean("CompressorEnabled"));
     System.out.println(CommandBase.mainArm.getDegrees());
   }
   public void testPeriodic() {
