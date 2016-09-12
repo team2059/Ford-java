@@ -32,10 +32,8 @@ public class MainArm extends PIDSubsystem {
   private double potToDegrees(double pot){
     double min = RobotMap.zeroDegrees;
     double max = RobotMap.ninetyDegrees;
-    double tmp = pot - max;
-    min = min - max;
-    max = max - max;
-    return 300 - ((tmp + max) / (300/min));
+    System.out.println((pot-min)/(Math.abs(min-max)/90));
+    return (pot-min)/(Math.abs(min-max)/90);
   }
 }
 // vim: sw=2:ts=2:sts=2
