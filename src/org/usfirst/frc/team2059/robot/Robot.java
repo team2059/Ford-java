@@ -17,6 +17,8 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm",CommandBase.mainArm.getPIDController());
     SmartDashboard.putBoolean("CompressorEnabled",true); 
+    //Automatically determine if rolling in or rolling out
+    SmartDashboard.putBoolean("SmartRollers",true);
   }
   public void disabledInit() {
   }
@@ -37,6 +39,7 @@ public class Robot extends IterativeRobot {
       autonomousCommand.cancel();
     }
     CommandBase.pneumatics.setCompressorEnabled(true);
+    CommandBase.pneumatics.setArmStopState(false);
   }
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
