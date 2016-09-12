@@ -8,8 +8,8 @@ public class RobotMap {
   public static int driveRightEncoder = 0;
   public static int driveLeftEncoder = 1;
   //Arm
-  public static double zeroDegrees = 0.1;
-  public static double ninetyDegrees = 0.7;
+  public static double zeroDegrees = 2.08;
+  public static double ninetyDegrees = 3.54;
   public static int armPot = 0;
   public static int armLeftMotor = 5;
   public static int armRightMotor = 6;

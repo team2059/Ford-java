@@ -4,9 +4,9 @@ import org.usfirst.frc.team2059.robot.subsystems.EncoderBase;
 import org.usfirst.frc.team2059.robot.subsystems.MainArm;
 import edu.wpi.first.wpilibj.command.Command;
 public abstract class CommandBase extends Command {
-  protected static EncoderBase encoderBase;
-  protected static DriveBase driveBase;
-  protected static MainArm mainArm;
+  public static EncoderBase encoderBase;
+  public static DriveBase driveBase;
+  public static MainArm mainArm;
   public static void init() {
     encoderBase = new EncoderBase();
     driveBase = new DriveBase();

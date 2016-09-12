@@ -37,6 +37,8 @@ public class Robot extends IterativeRobot {
   }
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("ArmAngleRaw",CommandBase.mainArm.getRaw()); 
+    SmartDashboard.putNumber("ArmAngleDegrees",CommandBase.mainArm.getDegrees()); 
   }
   public void testPeriodic() {
     LiveWindow.run();
