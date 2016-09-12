@@ -5,6 +5,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2059.robot.commands.LogEncoder;
 import org.usfirst.frc.team2059.robot.commands.MoveArm;
+import org.usfirst.frc.team2059.robot.commands.SetArmPosition;
+import org.usfirst.frc.team2059.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -27,6 +29,10 @@ public class OI {
     joystickButtons[0][0].whenPressed(new LogEncoder());
     joystickButtons[1][0].whileHeld(new MoveArm(0.5));
     joystickButtons[1][1].whileHeld(new MoveArm(-0.5));
+    joystickButtons[1][2].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCollect));
+    joystickButtons[1][3].whileHeld(new SetArmPosition(RobotMap.mainArmPresetTraverse));
+    joystickButtons[1][4].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCloseShot));
+    joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetFarShot));
   }
   public Joystick[] getJoysticks() {
     return joysticks;

@@ -26,8 +26,8 @@ public class RobotMap {
   public static int armStopSolenoidTwo = 5;
   //Misc
   public static int mainArmPresetCollect = 0;
-  public static int mainArmPresetTraverse = 5;
-  public static int mainArmPresetCloseShot = 95;
-  public static int mainArmPresetFarShot = 85;
+  public static int mainArmPresetTraverse = 11;
+  public static int mainArmPresetCloseShot = 90;
+  public static int mainArmPresetFarShot = 70;
 }
 // vim: sw=2:ts=2:sts=2
