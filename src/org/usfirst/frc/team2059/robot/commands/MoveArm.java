@@ -15,6 +15,7 @@ public class MoveArm extends CommandBase {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
+    mainArm.disable();
     mainArm.moveArm(speed);
     System.out.println(speed);
   }

@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 public class Pneumatics extends Subsystem {
   Compressor compressor = new Compressor(RobotMap.pcmID);
-  DoubleSolenoid shooterSolenoid = new DoubleSolenoid(RobotMap.shooterSolenoidOne, RobotMap.shooterSolenoidTwo);
-  DoubleSolenoid armStopSolenoid = new DoubleSolenoid(RobotMap.armStopSolenoidOne, RobotMap.armStopSolenoidTwo);
+  DoubleSolenoid shooterSolenoid = new DoubleSolenoid(RobotMap.pcmID, RobotMap.shooterSolenoidOne, RobotMap.shooterSolenoidTwo);
+  DoubleSolenoid armStopSolenoid = new DoubleSolenoid(RobotMap.pcmID, RobotMap.armStopSolenoidOne, RobotMap.armStopSolenoidTwo);
   boolean shooterState, armStopState;
   public void initDefaultCommand() {
   }

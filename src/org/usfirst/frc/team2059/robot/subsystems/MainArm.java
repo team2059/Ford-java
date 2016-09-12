@@ -11,7 +11,7 @@ public class MainArm extends PIDSubsystem {
   public MainArm(){
     super("MainArm",0.06,0.0,0.002);
     getPIDController().setContinuous(false);
-    setSetpoint(15);
+    setSetpoint(RobotMap.mainArmPresetTraverse);
     enable();
   }
   public void initDefaultCommand() {
