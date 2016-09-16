@@ -16,6 +16,7 @@ public class Robot extends IterativeRobot {
     chooser = new SendableChooser();
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm",CommandBase.mainArm.getPIDController());
+    SmartDashboard.putData("LeftEncoderController",CommandBase.driveBase.getLeftController());
     SmartDashboard.putBoolean("CompressorEnabled",true); 
     //Automatically determine if rolling in or rolling out
     SmartDashboard.putBoolean("SmartRollers",true);
@@ -45,6 +46,7 @@ public class Robot extends IterativeRobot {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("ArmAngleRaw",CommandBase.mainArm.getRaw()); 
     SmartDashboard.putNumber("ArmAngleDegrees",CommandBase.mainArm.getDegrees()); 
+    SmartDashboard.putNumber("tmpRotations",CommandBase.driveBase.getLeftRotations());
     CommandBase.pneumatics.setCompressorEnabled(SmartDashboard.getBoolean("CompressorEnabled"));
     System.out.println(CommandBase.mainArm.getDegrees());
   }

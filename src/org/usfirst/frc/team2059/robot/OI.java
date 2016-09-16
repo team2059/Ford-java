@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2059.robot.commands.LogEncoder;
+import org.usfirst.frc.team2059.robot.commands.PIDDrive;
 import org.usfirst.frc.team2059.robot.commands.MoveArm;
 import org.usfirst.frc.team2059.robot.commands.SetArmPosition;
 import org.usfirst.frc.team2059.robot.commands.SetShooterState;
@@ -33,6 +34,7 @@ public class OI {
     //joystickButtons[0][0].whenPressed(new LogEncoder());
     joystickButtons[0][0].whileHeld(new SpinRollers(1));
     joystickButtons[0][1].whileHeld(new SetShooterState(true));
+//    joystickButtons[0][2].whileHeld(new PIDDrive(400));
 
     joystickButtons[1][0].whileHeld(new MoveArm(0.5));
     joystickButtons[1][1].whileHeld(new MoveArm(-0.5));

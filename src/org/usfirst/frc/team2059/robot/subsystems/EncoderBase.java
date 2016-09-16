@@ -9,7 +9,7 @@ public class EncoderBase extends Subsystem {
   public EncoderBase() {
   }
   //Encoder enc = new Encoder(0, 1, false, Encoder.EncodingType.k1X);
-  Encoder enc = new Encoder(0, 1);
+  Encoder enc = new Encoder(8, 9);
   public void initDefaultCommand() {
     //TODO: Not sure if we need a default command, not setting one
     //TODO: These are just defaults, they wil lneed to be changed
