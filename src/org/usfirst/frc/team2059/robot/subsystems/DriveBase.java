@@ -11,10 +11,8 @@ public class DriveBase extends Subsystem {
   CANTalon leftMotorTwo = new CANTalon(RobotMap.driveLeftMotorTwo);
   CANTalon rightMotorOne = new CANTalon(RobotMap.driveRightMotorOne);
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
-  Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA,RobotMap.driveLeftEncoderB,false,Encoder.EncodingType.k2X);
-
-  PIDController leftEncoderController = new PIDController(0.02,0.002,0.017,leftEncoder,new MotorsPIDOutput());
-
+  Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k2X);
+  PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }
@@ -24,21 +22,20 @@ public class DriveBase extends Subsystem {
     rightMotorOne.set(y + (x + z));
     rightMotorTwo.set(y + (x + z));
   }
-  public void pidDrive(double setpoint){
+  public void pidDrive(double setpoint) {
     leftEncoder.reset();
     leftEncoderController.enable();
     leftEncoderController.setSetpoint(setpoint);
   }
-  public PIDController getLeftController(){
+  public PIDController getLeftController() {
     return leftEncoderController;
   }
-  public double getLeftRotations(){
+  public double getLeftRotations() {
     return leftEncoder.get();
   }
-
-  public class MotorsPIDOutput implements PIDOutput{
+  public class MotorsPIDOutput implements PIDOutput {
     @Override
-    public void pidWrite(double output){
+    public void pidWrite(double output) {
       leftMotorOne.pidWrite(output);
       leftMotorTwo.pidWrite(output);
       rightMotorOne.pidWrite(-output);

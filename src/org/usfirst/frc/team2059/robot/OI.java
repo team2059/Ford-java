@@ -35,7 +35,6 @@ public class OI {
     joystickButtons[0][0].whileHeld(new SpinRollers(1));
     joystickButtons[0][1].whileHeld(new SetShooterState(true));
 //    joystickButtons[0][2].whileHeld(new PIDDrive(400));
-
     joystickButtons[1][0].whileHeld(new MoveArm(0.5));
     joystickButtons[1][1].whileHeld(new MoveArm(-0.5));
     joystickButtons[1][2].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCollect));

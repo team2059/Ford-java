@@ -8,7 +8,7 @@ import org.usfirst.frc.team2059.robot.RobotMap;
 public class ShootAtSpeed extends CommandBase {
   double speed;
   public ShootAtSpeed(double s) {
-    speed=s;
+    speed = s;
   }
   // Called just before this Command runs the first time
   protected void initialize() {

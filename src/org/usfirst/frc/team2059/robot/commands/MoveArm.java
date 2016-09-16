@@ -8,7 +8,7 @@ public class MoveArm extends CommandBase {
   double speed;
   public MoveArm(double s) {
     requires(mainArm);
-    speed=s;
+    speed = s;
   }
   // Called just before this Command runs the first time
   protected void initialize() {

@@ -11,32 +11,32 @@ public class Pneumatics extends Subsystem {
   boolean shooterState, armStopState;
   public void initDefaultCommand() {
   }
-  public void setCompressorEnabled(boolean state){
+  public void setCompressorEnabled(boolean state) {
     compressor.setClosedLoopControl(state);
   }
-  public void setShooterState(boolean state){
-    if(state){
+  public void setShooterState(boolean state) {
+    if (state) {
       shooterSolenoid.set(DoubleSolenoid.Value.kForward);
-    }else{
+    } else {
       shooterSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
-    shooterState=state;
+    shooterState = state;
   }
-  public void setArmStopState(boolean state){
-    if(state){
+  public void setArmStopState(boolean state) {
+    if (state) {
       armStopSolenoid.set(DoubleSolenoid.Value.kForward);
-    }else{
+    } else {
       armStopSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
-    armStopState=state;
+    armStopState = state;
   }
-  public boolean getShooterState(){
+  public boolean getShooterState() {
     return shooterState;
   }
-  public boolean getArmStopState(){
+  public boolean getArmStopState() {
     return armStopState;
   }
-  public boolean getCompressorEnabled(){
+  public boolean getCompressorEnabled() {
     return compressor.enabled();
   }
 }

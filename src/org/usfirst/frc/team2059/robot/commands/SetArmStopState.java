@@ -7,7 +7,7 @@ import org.usfirst.frc.team2059.robot.Robot;
 public class SetArmStopState extends CommandBase {
   boolean state;
   public SetArmStopState(boolean s) {
-    state=s;
+    state = s;
   }
   // Called just before this Command runs the first time
   protected void initialize() {

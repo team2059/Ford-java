@@ -9,7 +9,7 @@ public class SetArmPosition extends CommandBase {
   double pos;
   public SetArmPosition(double p) {
     requires(mainArm);
-    pos=p;
+    pos = p;
   }
   // Called just before this Command runs the first time
   protected void initialize() {
@@ -17,9 +17,9 @@ public class SetArmPosition extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
     //Move the arm stop
-    if(pos==RobotMap.mainArmPresetCollect){
+    if (pos == RobotMap.mainArmPresetCollect) {
       pneumatics.setArmStopState(true);
-    }else if((pos!=RobotMap.mainArmPresetCollect)&&(mainArm.getDegrees()>2)){
+    } else if ((pos != RobotMap.mainArmPresetCollect) && (mainArm.getDegrees() > 2)) {
       pneumatics.setArmStopState(false);
     }
     mainArm.enable();

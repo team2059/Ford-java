@@ -7,7 +7,7 @@ import org.usfirst.frc.team2059.robot.Robot;
 public class SetShooterState extends CommandBase {
   boolean state;
   public SetShooterState(boolean s) {
-    state=s;
+    state = s;
   }
   // Called just before this Command runs the first time
   protected void initialize() {

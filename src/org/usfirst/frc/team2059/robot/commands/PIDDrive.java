@@ -8,7 +8,7 @@ public class PIDDrive extends CommandBase {
   double count;
   public PIDDrive(double c) {
     requires(driveBase);
-    count=c;
+    count = c;
   }
   // Called just before this Command runs the first time
   protected void initialize() {

@@ -7,7 +7,7 @@ public class Shooter extends Subsystem {
   CANTalon shooterMotorRight = new CANTalon(RobotMap.shooterRightMotor);
   public void initDefaultCommand() {
   }
-  public void shootAtSpeed(double speed){
+  public void shootAtSpeed(double speed) {
     shooterMotorRight.set(speed);
     shooterMotorLeft.set(speed);
   }
