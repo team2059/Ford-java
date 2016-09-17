@@ -10,6 +10,8 @@ public class RobotMap {
   //Arm
   public static double zeroDegrees = 2.019;
   public static double ninetyDegrees = 3.512;
+  public static int armBottomLim = 4;
+  public static int armTopLim = 5;
   public static int armPot = 0;
   public static int armLeftMotor = 5;
   public static int armRightMotor = 6;
