@@ -38,10 +38,11 @@ public class MainArm extends PIDSubsystem {
     return potToDegrees(getRaw());
   }
   private double potToDegrees(double pot) {
-	if (limitSwitchBottom.get()){
+	System.out.println(limitSwitchBottom.get());
+	  if (!limitSwitchBottom.get()){
 		RobotMap.zeroDegrees = getRaw();
 		System.out.println("====Bottom Switch====\n" + getRaw());
-	} else if (limitSwitchTop.get()){
+	} else if (!limitSwitchTop.get()){
 		RobotMap.ninetyDegrees = getRaw();
 		System.out.println("====Top Switch====\n" + getRaw());
 
