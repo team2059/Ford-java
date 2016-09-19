@@ -16,6 +16,12 @@ public class DriveBase extends Subsystem {
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }
+  public void stopDriving() {
+    leftMotorOne.set(0);
+    leftMotorTwo.set(0);
+    rightMotorOne.set(0);
+    rightMotorTwo.set(0);
+  }
   public void driveArcade(double x, double y, double z, double sensitivity) {
     leftMotorOne.set(-y + (x + z));
     leftMotorTwo.set(-y + (x + z));
