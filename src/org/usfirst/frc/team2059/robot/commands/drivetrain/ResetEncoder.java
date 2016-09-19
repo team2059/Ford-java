@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2059.robot.commands;
+package org.usfirst.frc.team2059.robot.commands.drivetrain;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 public class ResetEncoder extends CommandBase {
   public ResetEncoder() {

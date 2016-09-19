@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 import org.usfirst.frc.team2059.robot.RobotMap;
-import org.usfirst.frc.team2059.robot.commands.Drive;
+import org.usfirst.frc.team2059.robot.commands.drivetrain.Drive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Encoder;
 import org.usfirst.frc.team2059.robot.structs.EncoderValues;

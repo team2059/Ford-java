@@ -1,12 +1,12 @@
-package org.usfirst.frc.team2059.robot.commands;
+package org.usfirst.frc.team2059.robot.commands.shooter;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.Robot;
 /**
  *
  */
-public class SetArmStopState extends CommandBase {
+public class SetShooterState extends CommandBase {
   boolean state;
-  public SetArmStopState(boolean s) {
+  public SetShooterState(boolean s) {
     state = s;
   }
   // Called just before this Command runs the first time
@@ -14,7 +14,7 @@ public class SetArmStopState extends CommandBase {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    pneumatics.setArmStopState(state);
+    pneumatics.setShooterState(state);
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
@@ -22,7 +22,7 @@ public class SetArmStopState extends CommandBase {
   }
   // Called once after isFinished returns true
   protected void end() {
-    pneumatics.setArmStopState(!state);
+    pneumatics.setShooterState(!state);
   }
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run

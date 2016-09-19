@@ -3,14 +3,14 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import org.usfirst.frc.team2059.robot.commands.LogEncoder;
-import org.usfirst.frc.team2059.robot.commands.PIDDrive;
-import org.usfirst.frc.team2059.robot.commands.MoveArm;
-import org.usfirst.frc.team2059.robot.commands.SetArmPosition;
-import org.usfirst.frc.team2059.robot.commands.SetShooterState;
-import org.usfirst.frc.team2059.robot.commands.SetArmStopState;
-import org.usfirst.frc.team2059.robot.commands.ShootAtSpeed;
-import org.usfirst.frc.team2059.robot.commands.SpinRollers;
+import org.usfirst.frc.team2059.robot.commands.drivetrain.LogEncoder;
+import org.usfirst.frc.team2059.robot.commands.drivetrain.PIDDrive;
+import org.usfirst.frc.team2059.robot.commands.shooter.MoveArm;
+import org.usfirst.frc.team2059.robot.commands.shooter.SetArmPosition;
+import org.usfirst.frc.team2059.robot.commands.shooter.SetShooterState;
+import org.usfirst.frc.team2059.robot.commands.shooter.SetArmStopState;
+import org.usfirst.frc.team2059.robot.commands.shooter.ShootAtSpeed;
+import org.usfirst.frc.team2059.robot.commands.shooter.SpinRollers;
 import org.usfirst.frc.team2059.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator

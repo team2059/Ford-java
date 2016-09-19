@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2059.robot.commands;
+package org.usfirst.frc.team2059.robot.commands.drivetrain;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.structs.EncoderValues;
 public class LogEncoder  extends CommandBase {

@@ -1,20 +1,22 @@
-package org.usfirst.frc.team2059.robot.commands;
+package org.usfirst.frc.team2059.robot.commands.drivetrain;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.Robot;
 /**
  *
  */
-public class SetShooterState extends CommandBase {
-  boolean state;
-  public SetShooterState(boolean s) {
-    state = s;
+public class Drive extends CommandBase {
+  public Drive() {
+    requires(driveBase);
   }
   // Called just before this Command runs the first time
   protected void initialize() {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    pneumatics.setShooterState(state);
+    double x = Robot.oi.getJoysticks()[0].getRawAxis(0);
+    double y = Robot.oi.getJoysticks()[0].getRawAxis(1);
+    double z = Robot.oi.getJoysticks()[0].getRawAxis(2);
+    driveBase.driveArcade(x, y, z, 0);
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
@@ -22,12 +24,10 @@ public class SetShooterState extends CommandBase {
   }
   // Called once after isFinished returns true
   protected void end() {
-    pneumatics.setShooterState(!state);
   }
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   protected void interrupted() {
-    end();
   }
 }
 // vim: sw=2:ts=2:sts=2
