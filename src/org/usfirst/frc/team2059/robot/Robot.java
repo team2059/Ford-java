@@ -40,7 +40,7 @@ public class Robot extends IterativeRobot {
       autonomousCommand.cancel();
     }
     CommandBase.pneumatics.setCompressorEnabled(true);
-    CommandBase.pneumatics.setArmStopState(false);
+    CommandBase.pneumatics.setArmStopState(true);
   }
   public void teleopPeriodic() {
     Scheduler.getInstance().run();

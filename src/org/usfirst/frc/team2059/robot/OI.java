@@ -6,6 +6,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2059.robot.commands.drivetrain.LogEncoder;
 import org.usfirst.frc.team2059.robot.commands.drivetrain.PIDDrive;
 import org.usfirst.frc.team2059.robot.commands.shooter.MoveArm;
+import org.usfirst.frc.team2059.robot.commands.shooter.ResetLower;
+import org.usfirst.frc.team2059.robot.commands.shooter.ResetUpper;
 import org.usfirst.frc.team2059.robot.commands.shooter.SetArmPosition;
 import org.usfirst.frc.team2059.robot.commands.shooter.SetShooterState;
 import org.usfirst.frc.team2059.robot.commands.shooter.SetArmStopState;
@@ -42,6 +44,8 @@ public class OI {
     joystickButtons[1][4].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCloseShot));
     joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetFarShot));
     joystickButtons[1][7].whileHeld(new SetArmStopState(true));
+    joystickButtons[1][10].whileHeld(new ResetLower(-1));
+    joystickButtons[1][11].whileHeld(new ResetUpper(1));
   }
   public Joystick[] getJoysticks() {
     return joysticks;

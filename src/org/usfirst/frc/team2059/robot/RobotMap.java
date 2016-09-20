@@ -13,6 +13,8 @@ public class RobotMap {
   public static int armPot = 0;
   public static int armLeftMotor = 5;
   public static int armRightMotor = 6;
+  public static int armBottomLim = 4;
+  public static int armTopLim = 5;
   //Shooter
   public static int shooterLeftMotor = 7;
   public static int shooterRightMotor = 8;
