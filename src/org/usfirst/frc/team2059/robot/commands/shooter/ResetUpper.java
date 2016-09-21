@@ -21,7 +21,8 @@ public class ResetUpper extends CommandBase {
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
-    return mainArm.getTopPressed();
+    // Stop when either limit switch is hit
+    return mainArm.getBottomPressed() || mainArm.getTopPressed();
   }
   // Called once after isFinished returns true
   protected void end() {

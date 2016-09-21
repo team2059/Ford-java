@@ -31,12 +31,7 @@ public class MainArm extends PIDSubsystem {
     return getDegrees();
   }
   protected void usePIDOutput(double output) {
-    // Only run if neither limit switch is hit
-    if (!calibrate()) {
-      moveArm(output);
-    } else {
-      moveArm(0);
-    }
+    moveArm(output);
   }
   public double getRaw() {
     return pot.getAverageVoltage();
