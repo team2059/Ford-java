@@ -17,7 +17,7 @@ public class Robot extends IterativeRobot {
     chooser = new SendableChooser();
 
     chooser.addDefault("Time based drive", new RoutineDriveTime());
-    chooser.addObject("Distance based drive", new RoutineDriveTime());
+    chooser.addObject("Time based defense", new RoutineDefenseTime());
 
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());

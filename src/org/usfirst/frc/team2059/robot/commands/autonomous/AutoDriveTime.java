@@ -11,7 +11,7 @@ public class AutoDriveTime extends CommandBase {
   protected void initialize() {
   }
   protected void execute() {
-    driveBase.driveArcade(0,power,0,0);
+    driveBase.driveArcade(0,-power,0,0);
   }
   protected void end() {
     driveBase.stopDriving();

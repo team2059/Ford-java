@@ -1,13 +1,13 @@
-package org.usfirst.frc.team2059.robot.commands.shooter;
+package org.usfirst.frc.team2059.robot.commands.autonomous;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.Robot;
 import org.usfirst.frc.team2059.robot.RobotMap;
 /**
  *
  */
-public class SetArmPosition extends CommandBase {
+public class AutoSetArmPosition extends CommandBase {
   double pos;
-  public SetArmPosition(double p) {
+  public AutoSetArmPosition(double p) {
     requires(mainArm);
     pos = p;
   }
@@ -16,19 +16,17 @@ public class SetArmPosition extends CommandBase {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    //Move the arm stop
-    if (pos == RobotMap.mainArmPresetCollect) {
-      pneumatics.setArmStopState(true);
-    } else if ((pos != RobotMap.mainArmPresetCollect) && (mainArm.getDegrees() > 2)) {
-      pneumatics.setArmStopState(false);
-    }
     mainArm.enable();
     mainArm.setSetpoint(pos);
+    System.out.println(pos-mainArm.getDegrees());
+    System.out.println(mainArm.getDegrees());
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
     // Stop when either limit switch is hit
-    //return mainArm.getBottomPressed() || mainArm.getTopPressed();
+    //if(Math.abs(pos-mainArm.getDegrees()) <= 1){
+    //  return false;
+    //}
     return false;
   }
   // Called once after isFinished returns true

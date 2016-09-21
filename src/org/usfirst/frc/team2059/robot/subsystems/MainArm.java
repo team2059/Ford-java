@@ -41,11 +41,9 @@ public class MainArm extends PIDSubsystem {
   }
   public void resetLower(double speed) {
     if (getBottomPressed()) {
-      System.out.println("PRESSDE");
       moveArm(0);
       return;
     } else {
-      System.out.println("not pressed");
       moveArm(speed);
     }
   }
@@ -66,7 +64,7 @@ public class MainArm extends PIDSubsystem {
     return !limitSwitchTop.get();
   }
   private double potToDegrees(double pot) {
-    System.out.println((pot - min) / (Math.abs(min - max) / 90));
+    //System.out.println((pot - min) / (Math.abs(min - max) / 90));
     return (pot - min) / (Math.abs(min - max) / 90);
   }
   /**
@@ -75,9 +73,9 @@ public class MainArm extends PIDSubsystem {
    */
   private boolean calibrate() {
     // It can't be calibrated if the limit swithces are disabled
-    if (!SmartDashboard.getBoolean("UseLimitSwitches")) {
-      return false;
-    }
+    //if (!SmartDashboard.getBoolean("UseLimitSwitches")) {
+    //  return false;
+    //}
     if (getBottomPressed()) {
       System.out.println("Calibrating bottom to: " + getRaw());
       min = getRaw();
