@@ -20,6 +20,8 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putBoolean("CompressorEnabled", true);
     //Automatically determine if rolling in or rolling out
     SmartDashboard.putBoolean("SmartRollers", true);
+    //Use the limit swithces on the shooter
+    SmartDashboard.putBoolean("UseLimitSwitches", true);
   }
   public void disabledInit() {
   }

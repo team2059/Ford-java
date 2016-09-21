@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2059.robot.commands.shooter;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.Robot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -21,6 +22,11 @@ public class MoveArm extends CommandBase {
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
+    if (SmartDashboard.getBoolean("UseLimitSwitches")) {
+      if (mainArm.getTopPressed() || mainArm.getBottomPressed()) {
+        return true;
+      }
+    }
     return false;
   }
   // Called once after isFinished returns true
