@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class MainArm extends PIDSubsystem {
   CANTalon armMotorLeft = new CANTalon(RobotMap.armLeftMotor);
   CANTalon armMotorRight = new CANTalon(RobotMap.armRightMotor);
@@ -21,6 +22,8 @@ public class MainArm extends PIDSubsystem {
   public void initDefaultCommand() {
   }
   public void moveArm(double speed) {
+    // Calibrate the arm, but don't do anything about it
+    calibrate();
     armMotorLeft.set(-speed);
     armMotorRight.set(speed);
   }
@@ -28,8 +31,12 @@ public class MainArm extends PIDSubsystem {
     return getDegrees();
   }
   protected void usePIDOutput(double output) {
-    armMotorLeft.set(-output);
-    armMotorRight.set(output);
+    // Only run if neither limit switch is hit
+    if (calibrate()) {
+      moveArm(output);
+    } else {
+      moveArm(0);
+    }
   }
   public double getRaw() {
     return pot.getAverageVoltage();
@@ -38,7 +45,7 @@ public class MainArm extends PIDSubsystem {
     return potToDegrees(getRaw());
   }
   public void resetLower(double speed) {
-    if (!limitSwitchBottom.get()) {
+    if (getBottomPressed()) {
       System.out.println("PRESSDE");
       moveArm(0);
       return;
@@ -51,7 +58,7 @@ public class MainArm extends PIDSubsystem {
     return !limitSwitchBottom.get();
   }
   public void resetUpper(double speed) {
-    if (!limitSwitchTop.get()) {
+    if (getTopPressed()) {
       System.out.println("PRESSDE");
       moveArm(0);
       return;
@@ -64,14 +71,28 @@ public class MainArm extends PIDSubsystem {
     return !limitSwitchTop.get();
   }
   private double potToDegrees(double pot) {
-    if (!limitSwitchBottom.get()) {
-      System.out.println("got");
-      min = getRaw();
-    } else if (!limitSwitchTop.get()) {
-      max = getRaw();
-    }
     System.out.println((pot - min) / (Math.abs(min - max) / 90));
     return (pot - min) / (Math.abs(min - max) / 90);
+  }
+  /**
+   * Calibrates the arm if it hits the upper or lower limit switch
+   * @return True if it was calibrated (if either limit switch was pressed)
+   */
+  private boolean calibrate() {
+    // It can't be calibrated if the limit swithces are disabled
+    if (!SmartDashboard.getBoolean("UseLimitSwitches")) {
+      return false;
+    }
+    if (getBottomPressed()) {
+      System.out.println("Calibrating bottom to: " + getRaw());
+      min = getRaw();
+      return true;
+    } else if (getTopPressed()) {
+      System.out.println("Calibrating top to: " + getRaw());
+      max = getRaw();
+      return true;
+    }
+    return false;
   }
 }
 // vim: sw=2:ts=2:sts=2

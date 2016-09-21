@@ -22,6 +22,7 @@ public class MoveArm extends CommandBase {
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
+    //TODO: I don't know if this should go here
     if (SmartDashboard.getBoolean("UseLimitSwitches")) {
       if (mainArm.getTopPressed() || mainArm.getBottomPressed()) {
         return true;
