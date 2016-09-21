@@ -37,39 +37,37 @@ public class MainArm extends PIDSubsystem {
   public double getDegrees() {
     return potToDegrees(getRaw());
   }
-
-  public void resetLower(double speed){
-    if(!limitSwitchBottom.get()){
+  public void resetLower(double speed) {
+    if (!limitSwitchBottom.get()) {
       System.out.println("PRESSDE");
       moveArm(0);
       return;
-    }else{
+    } else {
       System.out.println("not pressed");
       moveArm(speed);
     }
   }
-  public boolean getBottomPressed(){
+  public boolean getBottomPressed() {
     return !limitSwitchBottom.get();
   }
-
-  public void resetUpper(double speed){
-    if(!limitSwitchTop.get()){
+  public void resetUpper(double speed) {
+    if (!limitSwitchTop.get()) {
       System.out.println("PRESSDE");
       moveArm(0);
       return;
-    }else{
+    } else {
       System.out.println("not pressed");
       moveArm(speed);
     }
   }
-  public boolean getTopPressed(){
+  public boolean getTopPressed() {
     return !limitSwitchTop.get();
   }
   private double potToDegrees(double pot) {
-    if(!limitSwitchBottom.get()){
+    if (!limitSwitchBottom.get()) {
       System.out.println("got");
       min = getRaw();
-    }else if(!limitSwitchTop.get()){
+    } else if (!limitSwitchTop.get()) {
       max = getRaw();
     }
     System.out.println((pot - min) / (Math.abs(min - max) / 90));
