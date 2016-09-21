@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2059.robot;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import org.usfirst.frc.team2059.robot.commands.autonomous.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -14,6 +15,10 @@ public class Robot extends IterativeRobot {
     CommandBase.init();
     oi = new OI();
     chooser = new SendableChooser();
+
+    chooser.addDefault("Time based drive", new RoutineDriveTime());
+    chooser.addObject("Distance based drive", new RoutineDriveTime());
+
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());
