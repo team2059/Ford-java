@@ -32,7 +32,7 @@ public class MainArm extends PIDSubsystem {
   }
   protected void usePIDOutput(double output) {
     // Only run if neither limit switch is hit
-    if (calibrate()) {
+    if (!calibrate()) {
       moveArm(output);
     } else {
       moveArm(0);
