@@ -52,11 +52,9 @@ public class MainArm extends PIDSubsystem {
   }
   public void resetUpper(double speed) {
     if (getTopPressed()) {
-      System.out.println("PRESSDE");
       moveArm(0);
       return;
     } else {
-      System.out.println("not pressed");
       moveArm(speed);
     }
   }

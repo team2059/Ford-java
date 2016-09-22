@@ -34,7 +34,7 @@ public class OI {
     }
     // Print log when button 1 pressed
     //joystickButtons[0][0].whenPressed(new LogEncoder());
-    joystickButtons[0][1].whileHeld(new SetShooterState(true));
+    joystickButtons[0][0].whileHeld(new SetShooterState(true));
     joystickButtons[0][3].whileHeld(new SpinRollers(1));
 //    joystickButtons[0][2].whileHeld(new PIDDrive(400));
     joystickButtons[1][0].whileHeld(new MoveArm(1));
