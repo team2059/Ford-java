@@ -5,6 +5,7 @@ import org.usfirst.frc.team2059.robot.Robot;
  *
  */
 public class Drive extends CommandBase {
+  double sensitivity = 0.5;
   public Drive() {
     requires(driveBase);
   }
@@ -16,7 +17,12 @@ public class Drive extends CommandBase {
     double x = Robot.oi.getJoysticks()[0].getRawAxis(0);
     double y = Robot.oi.getJoysticks()[0].getRawAxis(1);
     double z = Robot.oi.getJoysticks()[0].getRawAxis(2);
-    driveBase.driveArcade(x, y, z, 0);
+    if(Robot.oi.getJoysticks()[0].getRawButton(1)){
+      sensitivity = 1;
+    }else{
+      sensitivity = 0.5;
+    }
+    driveBase.driveArcade(x, y, z, sensitivity);
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {

@@ -34,18 +34,18 @@ public class OI {
     }
     // Print log when button 1 pressed
     //joystickButtons[0][0].whenPressed(new LogEncoder());
-    joystickButtons[0][0].whileHeld(new SpinRollers(1));
     joystickButtons[0][1].whileHeld(new SetShooterState(true));
+    joystickButtons[0][3].whileHeld(new SpinRollers(1));
 //    joystickButtons[0][2].whileHeld(new PIDDrive(400));
-    joystickButtons[1][0].whileHeld(new MoveArm(0.5));
-    joystickButtons[1][1].whileHeld(new MoveArm(-0.5));
+    joystickButtons[1][0].whileHeld(new MoveArm(1));
+    joystickButtons[1][1].whileHeld(new MoveArm(-1));
     joystickButtons[1][2].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCollect));
     joystickButtons[1][3].whileHeld(new SetArmPosition(RobotMap.mainArmPresetTraverse));
     joystickButtons[1][4].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCloseShot));
     joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetFarShot));
     joystickButtons[1][7].whileHeld(new SetArmStopState(true));
-    joystickButtons[1][10].whileHeld(new ResetLower(-1));
-    joystickButtons[1][11].whileHeld(new ResetUpper(1));
+//    joystickButtons[1][10].whileHeld(new ResetLower(-1));
+//    joystickButtons[1][11].whileHeld(new ResetUpper(1));
   }
   public Joystick[] getJoysticks() {
     return joysticks;

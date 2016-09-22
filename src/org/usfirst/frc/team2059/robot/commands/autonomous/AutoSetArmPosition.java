@@ -26,7 +26,7 @@ public class AutoSetArmPosition extends CommandBase {
     // Stop when either limit switch is hit
     System.out.println("AutoSetArmPosition.isFinished(): " + (Math.abs(pos - mainArm.getDegrees()) <= 1));
     System.out.println("  pos                  : " + pos);
-    System.out.println("  mainArm.getDegrees() : " + mainArm.getDegrees())
+    System.out.println("  mainArm.getDegrees() : " + mainArm.getDegrees());
     return Math.abs(pos - mainArm.getDegrees()) <= 1;
   }
   // Called once after isFinished returns true
