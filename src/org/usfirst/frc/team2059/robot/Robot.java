@@ -15,10 +15,8 @@ public class Robot extends IterativeRobot {
     CommandBase.init();
     oi = new OI();
     chooser = new SendableChooser();
-
     chooser.addDefault("Time based drive", new RoutineDriveTime());
     chooser.addObject("Time based defense", new RoutineDefenseTime());
-
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());

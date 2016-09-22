@@ -5,13 +5,13 @@ public class AutoDriveTime extends CommandBase {
   double power;
   public AutoDriveTime(double timeout, double power) {
     requires(driveBase);
-    this.power=power;
+    this.power = power;
     setTimeout(timeout);
   }
   protected void initialize() {
   }
   protected void execute() {
-    driveBase.driveArcade(0,-power,0,0);
+    driveBase.driveArcade(0, -power, 0, 0);
   }
   protected void end() {
     driveBase.stopDriving();
