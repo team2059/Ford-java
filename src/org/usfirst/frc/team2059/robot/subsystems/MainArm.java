@@ -15,7 +15,7 @@ public class MainArm extends PIDSubsystem {
   private double min = RobotMap.zeroDegrees;
   private double max = RobotMap.ninetyDegrees;
   public MainArm() {
-    super("MainArm", 0.06, 0.0, 0.002);
+    super("MainArm", 0.3, 0.0, 0.4);
     getPIDController().setContinuous(false);
     enable();
   }

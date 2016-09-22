@@ -41,6 +41,9 @@ public class Robot extends IterativeRobot {
   }
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
+    SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
+    SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
   }
   public void teleopInit() {
     if (autonomousCommand != null) {

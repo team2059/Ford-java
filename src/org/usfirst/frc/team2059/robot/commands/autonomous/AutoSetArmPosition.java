@@ -24,9 +24,9 @@ public class AutoSetArmPosition extends CommandBase {
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
     // Stop when either limit switch is hit
-    //if(Math.abs(pos-mainArm.getDegrees()) <= 1){
-    //  return false;
-    //}
+    if(Math.abs(pos-mainArm.getDegrees()) <= 1){
+      return false;
+    }
     return false;
   }
   // Called once after isFinished returns true
