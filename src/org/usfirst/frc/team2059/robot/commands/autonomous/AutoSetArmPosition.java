@@ -18,16 +18,14 @@ public class AutoSetArmPosition extends CommandBase {
   protected void execute() {
     mainArm.enable();
     mainArm.setSetpoint(pos);
-    System.out.println(pos-mainArm.getDegrees());
+    System.out.println(pos - mainArm.getDegrees());
     System.out.println(mainArm.getDegrees());
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
     // Stop when either limit switch is hit
-    if(Math.abs(pos-mainArm.getDegrees()) <= 1){
-      return false;
-    }
-    return false;
+    System.out.println("AutoSetArmPosition.isFinished(): " + (Math.abs(pos - mainArm.getDegrees()) <= 1));
+    return Math.abs(pos - mainArm.getDegrees()) <= 1;
   }
   // Called once after isFinished returns true
   protected void end() {
