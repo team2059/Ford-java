@@ -23,10 +23,10 @@ public class DriveBase extends Subsystem {
     rightMotorTwo.set(0);
   }
   public void driveArcade(double x, double y, double z, double sensitivity) {
-    leftMotorOne.set((-y + (x + z))*sensitivity);
-    leftMotorTwo.set((-y + (x + z))*sensitivity);
-    rightMotorOne.set((y + (x + z))*sensitivity);
-    rightMotorTwo.set((y + (x + z))*sensitivity);
+    leftMotorOne.set((-y + (x + z)) * sensitivity);
+    leftMotorTwo.set((-y + (x + z)) * sensitivity);
+    rightMotorOne.set((y + (x + z)) * sensitivity);
+    rightMotorTwo.set((y + (x + z)) * sensitivity);
   }
   public void pidDrive(double setpoint) {
     leftEncoder.reset();
