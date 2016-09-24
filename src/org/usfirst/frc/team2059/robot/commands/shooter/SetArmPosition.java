@@ -17,11 +17,6 @@ public class SetArmPosition extends CommandBase {
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
     //Move the arm stop
-    if (pos == RobotMap.mainArmPresetCollect) {
-      pneumatics.setArmStopState(true);
-    } else if ((pos != RobotMap.mainArmPresetCollect) && (mainArm.getDegrees() > 2)) {
-      pneumatics.setArmStopState(false);
-    }
     mainArm.enable();
     mainArm.setSetpoint(pos);
   }

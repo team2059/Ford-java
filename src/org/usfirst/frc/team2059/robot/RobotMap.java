@@ -28,7 +28,7 @@ public class RobotMap {
   public static int armStopSolenoidTwo = 5;
   //Misc
   public static int mainArmPresetCollect = -5;
-  public static int mainArmPresetTraverse = 11;
+  public static int mainArmPresetTraverse = 10;
   public static int mainArmPresetCloseShot = 90;
   public static int mainArmPresetFarShot = 70;
 }

@@ -2,6 +2,7 @@ package org.usfirst.frc.team2059.robot;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.commands.autonomous.*;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -11,18 +12,22 @@ public class Robot extends IterativeRobot {
   public static OI oi;
   Command autonomousCommand;
   SendableChooser chooser;
+  CameraServer cameraServer;
   public void robotInit() {
     CommandBase.init();
     oi = new OI();
     chooser = new SendableChooser();
-    chooser.addDefault("Time based drive", new RoutineDriveTime());
+    cameraServer = CameraServer.getInstance();
+    cameraServer.setQuality(50);
+    cameraServer.startAutomaticCapture("cam0");
+    chooser.addDefault("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based defense", new RoutineDefenseTime());
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());
     SmartDashboard.putBoolean("CompressorEnabled", true);
     //Automatically determine if rolling in or rolling out
-    SmartDashboard.putBoolean("SmartRollers", true);
+    SmartDashboard.putBoolean("SmartRollers", false);
     //Use the limit swithces on the shooter
     SmartDashboard.putBoolean("UseLimitSwitches", true);
   }

@@ -7,15 +7,17 @@ import org.usfirst.frc.team2059.robot.Robot;
  */
 public class SpinRollers extends CommandBase {
   double speed;
-  public SpinRollers(double s) {
+  boolean smartrollers;
+  public SpinRollers(double s, boolean sr) {
     speed = s;
+    smartrollers = sr;
   }
   // Called just before this Command runs the first time
   protected void initialize() {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    if (SmartDashboard.getBoolean("SmartRollers") && mainArm.getDegrees() < 5) {
+    if (smartrollers && (mainArm.getDegrees() < 5 || mainArm.getBottomPressed())) {
       shooter.shootAtSpeed(-.5);
     } else {
       shooter.shootAtSpeed(speed);
