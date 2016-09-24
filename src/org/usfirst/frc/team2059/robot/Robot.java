@@ -20,7 +20,8 @@ public class Robot extends IterativeRobot {
     cameraServer = CameraServer.getInstance();
     cameraServer.setQuality(50);
     cameraServer.startAutomaticCapture("cam0");
-    chooser.addDefault("Time based low bar", new RoutineDriveTime());
+    chooser.addDefault("Nothing", new RoutineNothing());
+    chooser.addObject("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based defense", new RoutineDefenseTime());
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());

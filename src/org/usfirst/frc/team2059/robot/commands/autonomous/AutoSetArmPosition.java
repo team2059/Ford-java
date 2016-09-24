@@ -10,6 +10,7 @@ public class AutoSetArmPosition extends CommandBase {
   public AutoSetArmPosition(double p) {
     requires(mainArm);
     pos = p;
+    setTimeout(3);
   }
   // Called just before this Command runs the first time
   protected void initialize() {
@@ -27,7 +28,7 @@ public class AutoSetArmPosition extends CommandBase {
     System.out.println("AutoSetArmPosition.isFinished(): " + (Math.abs(pos - mainArm.getDegrees()) <= 1));
     System.out.println("  pos                  : " + pos);
     System.out.println("  mainArm.getDegrees() : " + mainArm.getDegrees());
-    return Math.abs(pos - mainArm.getDegrees()) <= 1;
+    return (Math.abs(pos - mainArm.getDegrees()) <= 1) || isTimedOut();
   }
   // Called once after isFinished returns true
   protected void end() {

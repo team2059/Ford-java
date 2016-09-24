@@ -22,7 +22,7 @@ public class AutoResetLower extends CommandBase {
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {
     // Stop when bottom limit switch is hit
-    return mainArm.getBottomPressed();
+    return mainArm.getBottomPressed(); 
   }
   // Called once after isFinished returns true
   protected void end() {

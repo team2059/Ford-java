@@ -5,7 +5,7 @@ import org.usfirst.frc.team2059.robot.Robot;
 public class RoutineDefenseTime extends CommandGroup {
   public RoutineDefenseTime() {
     addSequential(new AutoSetArmStopState(false));
-    addSequential(new AutoSetArmPosition(10));
-    addSequential(new AutoDriveTime(2, .5));
+    addSequential(new AutoSetArmPosition(6));
+    addSequential(new AutoDriveTime(3, 1));
   }
 }

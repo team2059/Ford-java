@@ -20,7 +20,7 @@ public class Drive extends CommandBase {
     if (Robot.oi.getJoysticks()[0].getRawButton(2) || Robot.oi.getJoysticks()[0].getRawButton(11)) {
       sensitivity = 1;
     } else {
-      sensitivity = 0.5;
+      sensitivity = 0.7;
     }
     driveBase.driveArcade(x, y, z, sensitivity);
   }
