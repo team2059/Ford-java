@@ -45,7 +45,7 @@ public class OI {
     joystickButtons[1][2].whileHeld(new ResetLower(-1));
     joystickButtons[1][3].whileHeld(new SetArmPosition(RobotMap.mainArmPresetTraverse));
     joystickButtons[1][4].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCloseShot));
-    joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetFarShot));
+    joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetLowShot));
     joystickButtons[1][7].whileHeld(new SetArmStopState(true));
 //    joystickButtons[1][10].whileHeld(new ResetLower(-1));
 //    joystickButtons[1][11].whileHeld(new ResetUpper(1));

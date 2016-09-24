@@ -29,6 +29,7 @@ public class RobotMap {
   //Misc
   public static int mainArmPresetCollect = -5;
   public static int mainArmPresetTraverse = 10;
+  public static int mainArmPresetLowShot= 30;
   public static int mainArmPresetCloseShot = 90;
   public static int mainArmPresetFarShot = 70;
 }

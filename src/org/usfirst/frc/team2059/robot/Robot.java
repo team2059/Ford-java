@@ -53,13 +53,18 @@ public class Robot extends IterativeRobot {
       autonomousCommand.cancel();
     }
     CommandBase.pneumatics.setCompressorEnabled(true);
-    CommandBase.pneumatics.setArmStopState(true);
+    CommandBase.pneumatics.setArmStopState(false);
   }
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
+    if (Robot.oi.getJoysticks()[1].getRawButton(3)){
+      CommandBase.pneumatics.setArmStopState(true);
+    } else {
+      CommandBase.pneumatics.setArmStopState(false);
+    }
     CommandBase.pneumatics.setCompressorEnabled(SmartDashboard.getBoolean("CompressorEnabled"));
     System.out.println(CommandBase.mainArm.getDegrees());
   }
