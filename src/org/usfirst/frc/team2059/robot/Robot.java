@@ -27,7 +27,8 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());
-    SmartDashboard.putNumber("GyroCorrection",0.0);
+    SmartDashboard.putData("gyroPID", CommandBase.driveBase.getGyroController());
+    SmartDashboard.putNumber("GyroCorrection",0.187);
     SmartDashboard.putBoolean("CompressorEnabled", true);
     //Automatically determine if rolling in or rolling out
     SmartDashboard.putBoolean("SmartRollers", false);
