@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2059.robot.subsystems;
 import org.usfirst.frc.team2059.robot.RobotMap;
 import org.usfirst.frc.team2059.robot.commands.drivetrain.Drive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
@@ -14,7 +15,7 @@ public class DriveBase extends Subsystem {
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
   Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k2X);
   AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
-
+  PIDController gyroController = new PIDController(0.0,0.0,0.0, gyro, new MotorsPIDOutput());
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
@@ -32,6 +33,7 @@ public class DriveBase extends Subsystem {
     rightMotorTwo.set((y + (x + z)) * sensitivity);
   }
   public void driveStraight(double y, double correction){
+    SmartDashboard.putNumber("GyroAngle",gyro.getAngle());
     leftMotorOne.set((-y + gyro.getAngle()*correction));
     leftMotorTwo.set((-y + gyro.getAngle()*correction));
     rightMotorOne.set((y + gyro.getAngle()*correction));
@@ -47,6 +49,9 @@ public class DriveBase extends Subsystem {
   }
   public double getLeftRotations() {
     return leftEncoder.get();
+  }
+  public void resetGyro(){
+    gyro.reset();
   }
   public class MotorsPIDOutput implements PIDOutput {
     @Override

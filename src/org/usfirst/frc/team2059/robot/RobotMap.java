@@ -7,9 +7,10 @@ public class RobotMap {
   public static int driveRightMotorTwo = 4;
   public static int driveLeftEncoderA = 0;
   public static int driveLeftEncoderB = 1;
+  public static int gyro = 1;
   //Arm
-  public static double zeroDegrees = 1.622;
-  public static double ninetyDegrees = 3.234;
+  public static double zeroDegrees = 1.520;
+  public static double ninetyDegrees = 3.419;
   public static int armPot = 0;
   public static int armLeftMotor = 5;
   public static int armRightMotor = 6;

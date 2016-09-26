@@ -6,6 +6,6 @@ public class RoutineDefenseTime extends CommandGroup {
   public RoutineDefenseTime() {
     addSequential(new AutoSetArmStopState(false));
     addSequential(new AutoSetArmPosition(6));
-    addSequential(new AutoDriveTime(1.5, 0.8));
+    addSequential(new AutoDriveTime(2.5, 0.8));
   }
 }
