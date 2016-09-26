@@ -4,6 +4,7 @@ import org.usfirst.frc.team2059.robot.commands.drivetrain.Drive;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
+import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.CANTalon;
 public class DriveBase extends Subsystem {
@@ -12,6 +13,8 @@ public class DriveBase extends Subsystem {
   CANTalon rightMotorOne = new CANTalon(RobotMap.driveRightMotorOne);
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
   Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k2X);
+  AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
+
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
@@ -27,6 +30,12 @@ public class DriveBase extends Subsystem {
     leftMotorTwo.set((-y + (x + z)) * sensitivity);
     rightMotorOne.set((y + (x + z)) * sensitivity);
     rightMotorTwo.set((y + (x + z)) * sensitivity);
+  }
+  public void driveStraight(double y, double correction){
+    leftMotorOne.set((-y + gyro.getAngle()*correction));
+    leftMotorTwo.set((-y + gyro.getAngle()*correction));
+    rightMotorOne.set((y + gyro.getAngle()*correction));
+    rightMotorTwo.set((y + gyro.getAngle()*correction));
   }
   public void pidDrive(double setpoint) {
     leftEncoder.reset();
