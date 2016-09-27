@@ -24,11 +24,13 @@ public class Robot extends IterativeRobot {
     chooser.addObject("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based straight low bar", new RoutineDriveStraightTime());
     chooser.addObject("Time based defense", new RoutineDefenseTime());
+    chooser.addObject("Shot Auto", new RoutineShoot());
+    chooser.addObject("Two Ball Drop off", new RoutineTwoBallDropOff());
     SmartDashboard.putData("Auto mode", chooser);
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());
     SmartDashboard.putData("gyroPID", CommandBase.driveBase.getGyroController());
-    SmartDashboard.putNumber("GyroCorrection",0.187);
+    SmartDashboard.putNumber("GyroCorrection",0.13);
     SmartDashboard.putBoolean("CompressorEnabled", true);
     //Automatically determine if rolling in or rolling out
     SmartDashboard.putBoolean("SmartRollers", false);

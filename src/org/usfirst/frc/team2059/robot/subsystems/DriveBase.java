@@ -17,7 +17,7 @@ public class DriveBase extends Subsystem {
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
   Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k2X);
   AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
-  PIDController gyroController = new PIDController(0.082,0.002,0.07, new GyroPIDSource(), new MotorsPIDOutputReversed());
+  PIDController gyroController = new PIDController(0.07,0.002,0.08, new GyroPIDSource(), new MotorsPIDOutputReversed());
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
