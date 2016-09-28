@@ -23,6 +23,7 @@ public class Robot extends IterativeRobot {
     chooser.addDefault("Nothing", new RoutineNothing());
     chooser.addObject("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based straight low bar", new RoutineDriveStraightTime());
+    chooser.addObject("Distance based low bar straight", new RoutineDriveStraightDistance());
     chooser.addObject("Time based defense", new RoutineDefenseTime());
     chooser.addObject("Shot Auto", new RoutineShoot());
     chooser.addObject("Two Ball Drop off", new RoutineTwoBallDropOff());

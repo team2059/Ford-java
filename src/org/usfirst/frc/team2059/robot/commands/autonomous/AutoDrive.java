@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2059.robot.commands.autonomous;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
 import org.usfirst.frc.team2059.robot.Robot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutoDrive extends CommandBase {
   private double distance;
   // Determines if we should start driving
@@ -21,7 +22,7 @@ public class AutoDrive extends CommandBase {
   }
   protected void execute() {
     if (startDriving) {
-      driveBase.pidDrive(distance);
+      driveBase.pidDrive(distance,SmartDashboard.getNumber("GyroCorrection"));
     }
     startDriving = false;
   }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team2059.robot.commands.drivetrain;
 import org.usfirst.frc.team2059.robot.commands.CommandBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team2059.robot.Robot;
 /**
  *
@@ -15,7 +16,7 @@ public class PIDDrive extends CommandBase {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    driveBase.pidDrive(count);
+    driveBase.pidDrive(count,SmartDashboard.getNumber("GyroCorrection"));
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {

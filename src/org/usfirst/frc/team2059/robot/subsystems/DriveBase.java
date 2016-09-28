@@ -15,10 +15,11 @@ public class DriveBase extends Subsystem {
   CANTalon leftMotorTwo = new CANTalon(RobotMap.driveLeftMotorTwo);
   CANTalon rightMotorOne = new CANTalon(RobotMap.driveRightMotorOne);
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
-  Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k2X);
+  Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k4X);
   AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
   PIDController gyroController = new PIDController(0.07,0.002,0.08, new GyroPIDSource(), new MotorsPIDOutputReversed());
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
+  double encoderGyroCorrection=1;
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }
@@ -41,10 +42,11 @@ public class DriveBase extends Subsystem {
     rightMotorOne.set((y + -gyro.getAngle()*correction));
     rightMotorTwo.set((y + -gyro.getAngle()*correction));
   }
-  public void pidDrive(double setpoint) {
+  public void pidDrive(double setpoint, double correction) {
     leftEncoder.reset();
     leftEncoderController.enable();
     leftEncoderController.setSetpoint(setpoint);
+    encoderGyroCorrection=-gyro.getAngle()*correction;
   }
   public void rotateAngle(double angle){
     SmartDashboard.putNumber("GyroAngle",gyro.getAngle());
@@ -63,16 +65,19 @@ public class DriveBase extends Subsystem {
   public void resetGyro(){
     gyro.reset();
   }
+  public Encoder getLeftEncoder(){
+    return leftEncoder;
+  }
   public AnalogGyro getGyro(){
     return gyro;
   }
   public class MotorsPIDOutput implements PIDOutput {
     @Override
     public void pidWrite(double output) {
-      leftMotorOne.pidWrite(output);
-      leftMotorTwo.pidWrite(output);
-      rightMotorOne.pidWrite(-output);
-      rightMotorTwo.pidWrite(-output);
+      leftMotorOne.pidWrite(output + -encoderGyroCorrection);
+      leftMotorTwo.pidWrite(output + -encoderGyroCorrection);
+      rightMotorOne.pidWrite(-output + -encoderGyroCorrection);
+      rightMotorTwo.pidWrite(-output + -encoderGyroCorrection);
     }
   }
   public class MotorsPIDOutputReversed implements PIDOutput {
