@@ -6,7 +6,7 @@ public class AutoRotate extends CommandBase {
   double degrees;
   public AutoRotate(double degrees) {
     requires(driveBase);
-    this.degrees=degrees;
+    this.degrees = degrees;
     setTimeout(2.5);
   }
   protected void initialize() {

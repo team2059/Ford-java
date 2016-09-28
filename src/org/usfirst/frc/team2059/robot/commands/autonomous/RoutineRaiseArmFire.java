@@ -6,8 +6,10 @@ public class RoutineRaiseArmFire extends CommandGroup {
   public RoutineRaiseArmFire() {
     addSequential(new AutoSetArmPosition(90));
     //Raise the arm a little before spinning rollers
-    try{ wait(2); }catch(Exception e){ }
-    addParallel(new AutoSpinRollers(0.5,5));
+    try {
+      wait(2);
+    } catch (Exception e) { }
+    addParallel(new AutoSpinRollers(0.5, 5));
     addSequential(new AutoSetShooterState(true));
   }
 }

@@ -22,7 +22,7 @@ public class AutoDrive extends CommandBase {
   }
   protected void execute() {
     if (startDriving) {
-      driveBase.pidDrive(distance,SmartDashboard.getNumber("GyroCorrection"));
+      driveBase.pidDrive(distance, SmartDashboard.getNumber("GyroCorrection"));
     }
     startDriving = false;
   }

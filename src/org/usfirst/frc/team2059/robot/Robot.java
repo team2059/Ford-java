@@ -31,7 +31,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putData("MainArm", CommandBase.mainArm.getPIDController());
     SmartDashboard.putData("LeftEncoderController", CommandBase.driveBase.getLeftController());
     SmartDashboard.putData("gyroPID", CommandBase.driveBase.getGyroController());
-    SmartDashboard.putNumber("GyroCorrection",0.13);
+    SmartDashboard.putNumber("GyroCorrection", 0.13);
     SmartDashboard.putBoolean("CompressorEnabled", true);
     //Automatically determine if rolling in or rolling out
     SmartDashboard.putBoolean("SmartRollers", false);
@@ -67,7 +67,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
-    if (Robot.oi.getJoysticks()[1].getRawButton(3)){
+    if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);
     } else {
       CommandBase.pneumatics.setArmStopState(false);

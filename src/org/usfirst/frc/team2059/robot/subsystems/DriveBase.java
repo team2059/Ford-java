@@ -17,9 +17,9 @@ public class DriveBase extends Subsystem {
   CANTalon rightMotorTwo = new CANTalon(RobotMap.driveRightMotorTwo);
   Encoder leftEncoder = new Encoder(RobotMap.driveLeftEncoderA, RobotMap.driveLeftEncoderB, false, Encoder.EncodingType.k4X);
   AnalogGyro gyro = new AnalogGyro(RobotMap.gyro);
-  PIDController gyroController = new PIDController(0.07,0.002,0.08, new GyroPIDSource(), new MotorsPIDOutputReversed());
+  PIDController gyroController = new PIDController(0.07, 0.002, 0.08, new GyroPIDSource(), new MotorsPIDOutputReversed());
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
-  double encoderGyroCorrection=1;
+  double encoderGyroCorrection = 1;
   public void initDefaultCommand() {
     setDefaultCommand(new Drive());
   }
@@ -35,40 +35,40 @@ public class DriveBase extends Subsystem {
     rightMotorOne.set((y + (x + z)) * sensitivity);
     rightMotorTwo.set((y + (x + z)) * sensitivity);
   }
-  public void driveStraight(double y, double correction){
-    SmartDashboard.putNumber("GyroAngle",gyro.getAngle());
-    leftMotorOne.set((-y + -gyro.getAngle()*correction));
-    leftMotorTwo.set((-y + -gyro.getAngle()*correction));
-    rightMotorOne.set((y + -gyro.getAngle()*correction));
-    rightMotorTwo.set((y + -gyro.getAngle()*correction));
+  public void driveStraight(double y, double correction) {
+    SmartDashboard.putNumber("GyroAngle", gyro.getAngle());
+    leftMotorOne.set((-y + -gyro.getAngle() * correction));
+    leftMotorTwo.set((-y + -gyro.getAngle() * correction));
+    rightMotorOne.set((y + -gyro.getAngle() * correction));
+    rightMotorTwo.set((y + -gyro.getAngle() * correction));
   }
   public void pidDrive(double setpoint, double correction) {
     leftEncoder.reset();
     leftEncoderController.enable();
     leftEncoderController.setSetpoint(setpoint);
-    encoderGyroCorrection=-gyro.getAngle()*correction;
+    encoderGyroCorrection = -gyro.getAngle() * correction;
   }
-  public void rotateAngle(double angle){
-    SmartDashboard.putNumber("GyroAngle",gyro.getAngle());
+  public void rotateAngle(double angle) {
+    SmartDashboard.putNumber("GyroAngle", gyro.getAngle());
     gyroController.enable();
     gyroController.setSetpoint(angle);
   }
   public PIDController getLeftController() {
     return leftEncoderController;
   }
-  public PIDController getGyroController(){
+  public PIDController getGyroController() {
     return gyroController;
   }
   public double getLeftRotations() {
     return leftEncoder.get();
   }
-  public void resetGyro(){
+  public void resetGyro() {
     gyro.reset();
   }
-  public Encoder getLeftEncoder(){
+  public Encoder getLeftEncoder() {
     return leftEncoder;
   }
-  public AnalogGyro getGyro(){
+  public AnalogGyro getGyro() {
     return gyro;
   }
   public class MotorsPIDOutput implements PIDOutput {
@@ -89,14 +89,14 @@ public class DriveBase extends Subsystem {
       rightMotorTwo.pidWrite(output);
     }
   }
-  public class GyroPIDSource implements PIDSource{
-    public double pidGet(){
+  public class GyroPIDSource implements PIDSource {
+    public double pidGet() {
       return gyro.getAngle();
     }
-    public PIDSourceType getPIDSourceType(){
+    public PIDSourceType getPIDSourceType() {
       return PIDSourceType.kDisplacement;
     }
-    public void setPIDSourceType(PIDSourceType type){
+    public void setPIDSourceType(PIDSourceType type) {
     }
   }
 }

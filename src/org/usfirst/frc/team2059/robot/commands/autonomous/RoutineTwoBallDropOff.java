@@ -6,19 +6,19 @@ public class RoutineTwoBallDropOff extends CommandGroup {
   public RoutineTwoBallDropOff() {
     addSequential(new AutoSetArmStopState(true));
     addSequential(new AutoResetLower(-1));
-    addSequential(new AutoDriveStraightTime(0.5,2));
-    addSequential(new AutoMoveArm(0.5,1));
-    addSequential(new AutoSpinRollers(1,2));
+    addSequential(new AutoDriveStraightTime(0.5, 2));
+    addSequential(new AutoMoveArm(0.5, 1));
+    addSequential(new AutoSpinRollers(1, 2));
     addSequential(new AutoSetShooterState(true));
     addSequential(new AutoResetLower(-1));
     addSequential(new AutoRotate(180));
     addSequential(new AutoSetShooterState(false));
-    addParallel(new AutoSpinRollers(-0.5,3));
-    addSequential(new AutoDriveStraightTime(0.5,2));
+    addParallel(new AutoSpinRollers(-0.5, 3));
+    addSequential(new AutoDriveStraightTime(0.5, 2));
     addSequential(new AutoRotate(180));
-    addSequential(new AutoDriveStraightTime(0.5,2));
-    addSequential(new AutoMoveArm(0.5,1));
-    addSequential(new AutoSpinRollers(1,2));
+    addSequential(new AutoDriveStraightTime(0.5, 2));
+    addSequential(new AutoMoveArm(0.5, 1));
+    addSequential(new AutoSpinRollers(1, 2));
     addSequential(new AutoSetShooterState(true));
     addSequential(new AutoRotate(180));
     addSequential(new AutoSetShooterState(false));

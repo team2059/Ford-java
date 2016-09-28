@@ -6,6 +6,6 @@ public class RoutineDriveStraightTime extends CommandGroup {
   public RoutineDriveStraightTime() {
     addSequential(new AutoSetArmStopState(true));
     addSequential(new AutoResetLower(-1));
-    addSequential(new AutoDriveStraightTime(0.5,1));
+    addSequential(new AutoDriveStraightTime(0.5, 1));
   }
 }

@@ -6,6 +6,6 @@ public class RoutineDriveStraightDistance extends CommandGroup {
   public RoutineDriveStraightDistance() {
     addSequential(new AutoSetArmStopState(true));
     addSequential(new AutoResetLower(-1));
-    addSequential(new AutoDriveStraightDistance(200,5));
+    addSequential(new AutoDriveStraightDistance(200, 5));
   }
 }

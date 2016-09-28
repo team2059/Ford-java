@@ -7,14 +7,14 @@ public class AutoDriveStraightDistance extends CommandBase {
   public AutoDriveStraightDistance(double distance, double timeout) {
     requires(driveBase);
     setTimeout(timeout);
-    this.distance=distance;
+    this.distance = distance;
   }
   protected void initialize() {
-   driveBase.resetGyro(); 
-   driveBase.getLeftEncoder().reset();
+    driveBase.resetGyro();
+    driveBase.getLeftEncoder().reset();
   }
   protected void execute() {
-    driveBase.pidDrive(distance,SmartDashboard.getNumber("GyroCorrection"));
+    driveBase.pidDrive(distance, SmartDashboard.getNumber("GyroCorrection"));
   }
   protected void end() {
     driveBase.getLeftController().disable();
@@ -24,7 +24,7 @@ public class AutoDriveStraightDistance extends CommandBase {
     end();
   }
   protected boolean isFinished() {
-    return isTimedOut() || Math.abs(distance-driveBase.getLeftRotations()) <= 3;
+    return isTimedOut() || Math.abs(distance - driveBase.getLeftRotations()) <= 3;
   }
 }
 // vim: sw=2:ts=2:sts=2

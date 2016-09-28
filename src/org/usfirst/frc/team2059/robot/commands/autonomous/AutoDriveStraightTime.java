@@ -7,13 +7,13 @@ public class AutoDriveStraightTime extends CommandBase {
   public AutoDriveStraightTime(double speed, double time) {
     requires(driveBase);
     setTimeout(time);
-    this.speed=speed;
+    this.speed = speed;
   }
   protected void initialize() {
-   driveBase.resetGyro(); 
+    driveBase.resetGyro();
   }
   protected void execute() {
-    driveBase.driveStraight(-speed,SmartDashboard.getNumber("GyroCorrection"));
+    driveBase.driveStraight(-speed, SmartDashboard.getNumber("GyroCorrection"));
   }
   protected void end() {
     driveBase.stopDriving();
