@@ -13,6 +13,7 @@ import org.usfirst.frc.team2059.robot.commands.shooter.SetShooterState;
 import org.usfirst.frc.team2059.robot.commands.shooter.SetArmStopState;
 import org.usfirst.frc.team2059.robot.commands.shooter.ShootAtSpeed;
 import org.usfirst.frc.team2059.robot.commands.shooter.SpinRollers;
+import org.usfirst.frc.team2059.robot.commands.visionhelper.AlignHorizontal;
 import org.usfirst.frc.team2059.robot.RobotMap;
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -34,7 +35,8 @@ public class OI {
     }
     // Print log when button 1 pressed
     //joystickButtons[0][0].whenPressed(new LogEncoder());
-    joystickButtons[0][0].whileHeld(new SetShooterState(true));
+//    joystickButtons[0][0].whileHeld(new SetShooterState(true));
+    joystickButtons[0][0].whileHeld(new AlignHorizontal());
     joystickButtons[0][2].whileHeld(new SpinRollers(-0.5, false));
     joystickButtons[0][3].whileHeld(new SpinRollers(1, false));
     joystickButtons[0][6].whileHeld(new SpinRollers(1, true));

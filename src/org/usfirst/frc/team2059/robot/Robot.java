@@ -20,6 +20,11 @@ public class Robot extends IterativeRobot {
 //   cameraServer = CameraServer.getInstance();
 //    cameraServer.setQuality(50);
 //    cameraServer.startAutomaticCapture("cam0");
+    try{
+      Process grip = Runtime.getRuntime().exec(new String[]{"/usr/local/frc/JRE/bin/java", "-jar", "grip.jar", "project.grip"});
+    }catch(Exception e){
+      System.out.println("Error starting GRIP");
+    }
     chooser.addDefault("Nothing", new RoutineNothing());
     chooser.addObject("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based straight low bar", new RoutineDriveStraightTime());
@@ -67,7 +72,10 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
-    SmartDashboard.putNumber("centerX",CommandBase.visionHelper.getCenterX());
+    SmartDashboard.putNumber("horizontalError",CommandBase.visionHelper.getHorizontalError());
+    SmartDashboard.putNumber("verticalError",CommandBase.visionHelper.getVerticalError());
+    SmartDashboard.putNumber("horizontalErrorCorrected",CommandBase.visionHelper.getHorizontalError()+5);
+    SmartDashboard.putNumber("goalDistance",72/Math.tan(0.0175*(35+CommandBase.visionHelper.getVerticalError())));
     if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);
     } else {
