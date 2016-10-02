@@ -12,14 +12,14 @@ public class Robot extends IterativeRobot {
   public static OI oi;
   Command autonomousCommand;
   SendableChooser chooser;
-  CameraServer cameraServer;
+//  CameraServer cameraServer;
   public void robotInit() {
     CommandBase.init();
     oi = new OI();
     chooser = new SendableChooser();
-    cameraServer = CameraServer.getInstance();
-    cameraServer.setQuality(50);
-    cameraServer.startAutomaticCapture("cam0");
+//   cameraServer = CameraServer.getInstance();
+//    cameraServer.setQuality(50);
+//    cameraServer.startAutomaticCapture("cam0");
     chooser.addDefault("Nothing", new RoutineNothing());
     chooser.addObject("Time based low bar", new RoutineDriveTime());
     chooser.addObject("Time based straight low bar", new RoutineDriveStraightTime());
@@ -67,13 +67,13 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
+    SmartDashboard.putNumber("centerX",CommandBase.visionHelper.getCenterX());
     if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);
     } else {
       CommandBase.pneumatics.setArmStopState(false);
     }
     CommandBase.pneumatics.setCompressorEnabled(SmartDashboard.getBoolean("CompressorEnabled"));
-    System.out.println(CommandBase.mainArm.getDegrees());
   }
   public void testPeriodic() {
     LiveWindow.run();

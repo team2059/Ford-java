@@ -25,6 +25,7 @@ public class MainArm extends PIDSubsystem {
   public void moveArm(double speed) {
     // Calibrate the arm, but don't do anything about it
     calibrate();
+    System.out.println(getTopPressed());
     armMotorLeft.set(-speed);
     armMotorRight.set(speed);
   }
@@ -79,12 +80,11 @@ public class MainArm extends PIDSubsystem {
       System.out.println("Calibrating bottom to: " + getRaw());
       min = getRaw();
       return true;
+    } else if (getTopPressed()) {
+      System.out.println("Calibrating top to: " + getRaw());
+      max = getRaw();
+      return true;
     }
-//    } else if (getTopPressed()) {
-//      System.out.println("Calibrating top to: " + getRaw());
-//      max = getRaw();
-//      return true;
-//    }
     return false;
   }
 }
