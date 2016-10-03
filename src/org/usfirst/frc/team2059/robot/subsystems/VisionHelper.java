@@ -18,22 +18,28 @@ public class VisionHelper {
       try{
          return contoursTable.getNumberArray("centerX",new double[0])[0];
       }catch(Exception e){
-         return 0;
+         return 420;
       }
    }
    public double getCenterY(){
       try{
          return contoursTable.getNumberArray("centerY",new double[0])[0];
       }catch(Exception e){
-         return 0;
+         return 420;
       }
    }
    public double getHorizontalError(){
+      if(getCenterX()==420){
+         return 420;
+      }
       double degreesPerPixel=hfieldOfView/imageWidth;
       double centerColumn=imageWidth/2;
       return (getCenterX()-centerColumn)*degreesPerPixel;
    }
    public double getVerticalError(){
+      if(getCenterY()==420){
+         return 420;
+      }
       double degreesPerPixel=vfieldOfView/imageHeight;
       double centerRow=imageHeight/2;
       return (getCenterY()-centerRow)*degreesPerPixel;

@@ -59,6 +59,9 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("ArmAngleRaw", CommandBase.mainArm.getRaw());
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
+    SmartDashboard.putNumber("horizontalError",CommandBase.visionHelper.getHorizontalError());
+    SmartDashboard.putNumber("verticalError",CommandBase.visionHelper.getVerticalError());
+    SmartDashboard.putNumber("horizontalErrorCorrected",CommandBase.visionHelper.getHorizontalError()+5);
   }
   public void teleopInit() {
     if (autonomousCommand != null) {
