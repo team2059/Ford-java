@@ -27,6 +27,15 @@ public class RobotMap {
   public static int portcullisSolenoidTwo = 3;
   public static int armStopSolenoidOne = 4;
   public static int armStopSolenoidTwo = 5;
+  //Camera
+  //public static double fWidth = 2.8;
+  // Camera: Axis M1013
+  // FOV = 67deg
+  // f = pixelSize/(2*tan(FOV/2))
+  public static double imageWidth = 640;
+  public static double imageHeight = 480;
+  public static double fWidth = 483.467261958;
+  public static double fHeight = 362.600446468;
   //Misc
   public static int mainArmPresetCollect = -5;
   public static int mainArmPresetTraverse = 10;
