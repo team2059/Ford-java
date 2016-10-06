@@ -21,7 +21,7 @@ public class DriveBase extends Subsystem {
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   double encoderGyroCorrection = 1;
   public void initDefaultCommand() {
-    setDefaultCommand(new Drive());
+//    setDefaultCommand(new Drive());
   }
   public void stopDriving() {
     leftMotorOne.set(0);

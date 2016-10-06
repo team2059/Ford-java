@@ -78,7 +78,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("horizontalError", CommandBase.visionHelper.getHorizontalError());
     SmartDashboard.putNumber("verticalError", CommandBase.visionHelper.getVerticalError());
     SmartDashboard.putNumber("horizontalErrorCorrected", CommandBase.visionHelper.getHorizontalError() + 5);
-    SmartDashboard.putNumber("goalDistance", 72 / Math.tan(0.0175 * (35 + CommandBase.visionHelper.getVerticalError())));
+    SmartDashboard.putNumber("goalDistance", 71 / Math.tan((52.7 - CommandBase.visionHelper.getVerticalError())));
     if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);
     } else {

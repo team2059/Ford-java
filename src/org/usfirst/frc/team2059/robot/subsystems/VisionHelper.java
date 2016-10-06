@@ -8,8 +8,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class VisionHelper {
   NetworkTable contoursTable;
-  double hfieldOfView = 67;
-  double vfieldOfView = 51;
   double imageWidth = 640;
   double imageHeight = 480;
   public VisionHelper() {
@@ -30,9 +28,9 @@ public class VisionHelper {
     }
   }
   public double getHorizontalError() {
-    return Math.atan2(getCenterX() - RobotMap.imageWidth / 2, RobotMap.fWidth);
+    return (180/Math.PI) * (Math.atan((getCenterX() - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
   }
   public double getVerticalError() {
-    return Math.atan2(getCenterY() - RobotMap.imageHeight / 2, RobotMap.fHeight);
+    return (180/Math.PI) * (Math.atan((getCenterY() - (RobotMap.imageHeight / 2)) / RobotMap.fHeight));
   }
 }

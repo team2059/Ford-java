@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc.team2059.robot.commands.drivetrain.LogEncoder;
 import org.usfirst.frc.team2059.robot.commands.drivetrain.PIDDrive;
+import org.usfirst.frc.team2059.robot.commands.drivetrain.Drive;
 import org.usfirst.frc.team2059.robot.commands.shooter.MoveArm;
 import org.usfirst.frc.team2059.robot.commands.shooter.ResetLower;
 import org.usfirst.frc.team2059.robot.commands.shooter.ResetUpper;
@@ -40,6 +41,7 @@ public class OI {
     joystickButtons[0][2].whileHeld(new SpinRollers(-0.5, false));
     joystickButtons[0][3].whileHeld(new SpinRollers(1, false));
     joystickButtons[0][6].whileHeld(new SpinRollers(1, true));
+    joystickButtons[0][9].whileHeld(new Drive());
 //    joystickButtons[0][2].whileHeld(new PIDDrive(400));
     joystickButtons[1][0].whileHeld(new MoveArm(1));
     joystickButtons[1][1].whileHeld(new MoveArm(-1));
