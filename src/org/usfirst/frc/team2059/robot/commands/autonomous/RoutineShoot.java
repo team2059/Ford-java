@@ -10,5 +10,6 @@ public class RoutineShoot extends CommandGroup {
     addSequential(new AutoSetArmPosition(90));
     //addSequential(new AutoRotate(45));
     //addSequential(new AutoDriveStraightTime(0.4, 1.5));
-    addSequential(new VisionAlignHorizontal()); }
+    addSequential(new VisionAlignHorizontal());
+  }
 }

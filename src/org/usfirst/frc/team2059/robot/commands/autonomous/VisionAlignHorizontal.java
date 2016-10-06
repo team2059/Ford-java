@@ -12,10 +12,10 @@ public class VisionAlignHorizontal extends CommandBase {
     return false;
   }
   protected void execute() {
-    if(visionHelper.getHorizontalError()==420){
+    if (visionHelper.getHorizontalError() == 420) {
       driveBase.resetGyro();
       driveBase.rotateAngle(5);
-    }else{
+    } else {
 //      driveBase.rotateAngle(visionHelper.getHorizontalError());
     }
   }
