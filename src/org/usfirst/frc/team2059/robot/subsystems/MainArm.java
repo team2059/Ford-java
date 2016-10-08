@@ -80,11 +80,12 @@ public class MainArm extends PIDSubsystem {
       System.out.println("Calibrating bottom to: " + getRaw());
       min = getRaw();
       return true;
-    } else if (getTopPressed()) {
-      System.out.println("Calibrating top to: " + getRaw());
-      max = getRaw();
-      return true;
     }
+ //   } else if (getTopPressed()) {
+ //     System.out.println("Calibrating top to: " + getRaw());
+ //     max = getRaw();
+ //     return true;
+ //   }
     return false;
   }
 }
