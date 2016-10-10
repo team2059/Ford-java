@@ -14,6 +14,13 @@ public class VisionHelper {
     linesTable = NetworkTable.getTable("GRIP/lines");
     contoursTable = NetworkTable.getTable("GRIP/contours");
   }
+  public double getCenterContourX(){
+     try{
+        return contoursTable.getNumberArray("centerX",new double[0])[0];
+     }catch(Exception e){
+        return 0;
+     }
+  }
   public double getCenterX() {
     int highestLengthIndex = 0;
     int index = 0;
@@ -53,7 +60,7 @@ public class VisionHelper {
     }
   }
   public double getHorizontalError() {
-    return (180/Math.PI) * (Math.atan((getCenterX()-20 - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
+    return (180/Math.PI) * (Math.atan((getCenterContourX()+25 - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
   }
   public double getVerticalError() {
     return (180/Math.PI) * (Math.atan((getCenterY() - (RobotMap.imageHeight / 2)) / RobotMap.fHeight));
