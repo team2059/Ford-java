@@ -21,7 +21,7 @@ public class Robot extends IterativeRobot {
 //    cameraServer.setQuality(50);
 //    cameraServer.startAutomaticCapture("cam0");
     try {
-//      new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
+      new ProcessBuilder("/home/lvuser/grip").inheritIO().start();
     } catch (Exception e) {
       System.out.println("Error starting GRIP");
     }
@@ -77,11 +77,12 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("ArmAngleDegrees", CommandBase.mainArm.getDegrees());
     SmartDashboard.putNumber("tmpRotations", CommandBase.driveBase.getLeftRotations());
     SmartDashboard.putNumber("centerX", CommandBase.visionHelper.getCenterX());
-//    SmartDashboard.putNumber("centerY", CommandBase.visionHelper.getCenterY());
     SmartDashboard.putNumber("centerContoursX", CommandBase.visionHelper.getCenterContourX());
     SmartDashboard.putNumber("horizontalError", CommandBase.visionHelper.getHorizontalError());
-    SmartDashboard.putNumber("verticalError", CommandBase.visionHelper.getVerticalError());
     SmartDashboard.putNumber("horizontalErrorCorrected", CommandBase.visionHelper.getHorizontalError() + 5);
+    SmartDashboard.putNumber("sonarDistance", CommandBase.mainArm.getSonarDistance());
+    SmartDashboard.putNumber("sonarDistanceRaw", CommandBase.mainArm.getSonarDistanceRaw());
+    SmartDashboard.putNumber("shooterAngleError", CommandBase.mainArm.getShooterAngleError());
     SmartDashboard.putNumber("goalDistance", 54 / Math.tan((Math.PI/180) * (60 - CommandBase.visionHelper.getVerticalError())));
     if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);

@@ -21,6 +21,26 @@ public class VisionHelper {
         return 0;
      }
   }
+  public double getSlope(){
+    int highestLengthIndex = 0;
+    int index = 0;
+    double lengths[] = linesTable.getNumberArray("length", new double[0]);
+    try{
+    double x1s[] = linesTable.getNumberArray("x1", new double[0]);
+    double y1s[] = linesTable.getNumberArray("y1", new double[0]);
+    double x2s[] = linesTable.getNumberArray("x2", new double[0]);
+    double y2s[] = linesTable.getNumberArray("y2", new double[0]);
+    for(double length : lengths){
+       if(length >= lengths[highestLengthIndex]){
+          highestLengthIndex=index;
+       }
+       index++;
+    }
+    return ((y1s[highestLengthIndex]-y2s[highestLengthIndex])/(x1s[highestLengthIndex]-x2s[highestLengthIndex]));
+    }catch(Exception e){
+       return 0;
+    }
+  }
   public double getCenterX() {
     int highestLengthIndex = 0;
     int index = 0;
@@ -60,7 +80,7 @@ public class VisionHelper {
     }
   }
   public double getHorizontalError() {
-    return (180/Math.PI) * (Math.atan((getCenterContourX()+25 - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
+    return (180/Math.PI) * (Math.atan((getCenterContourX() - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
   }
   public double getVerticalError() {
     return (180/Math.PI) * (Math.atan((getCenterY() - (RobotMap.imageHeight / 2)) / RobotMap.fHeight));

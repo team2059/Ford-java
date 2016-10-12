@@ -10,6 +10,7 @@ public class MainArm extends PIDSubsystem {
   CANTalon armMotorLeft = new CANTalon(RobotMap.armLeftMotor);
   CANTalon armMotorRight = new CANTalon(RobotMap.armRightMotor);
   AnalogInput pot = new AnalogInput(RobotMap.armPot);
+  AnalogInput sonar = new AnalogInput(RobotMap.sonar);
   DigitalInput limitSwitchBottom = new DigitalInput(RobotMap.armBottomLim);
   DigitalInput limitSwitchTop = new DigitalInput(RobotMap.armTopLim);
   private double min = RobotMap.zeroDegrees;
@@ -87,6 +88,16 @@ public class MainArm extends PIDSubsystem {
  //     return true;
  //   }
     return false;
+  }
+  public double getShooterAngleError(){
+    double correctedHeight = RobotMap.goalHeight - 44; //44 is the distance between the ground and the sonar
+    return (180/Math.PI) * Math.atan(correctedHeight/getSonarDistance());
+  }
+  public double getSonarDistanceRaw(){
+     return sonar.getVoltage();
+  }
+  public double getSonarDistance(){
+     return (getSonarDistanceRaw()/0.000976562f)/25.4f;
   }
 }
 // vim: sw=2:ts=2:sts=2

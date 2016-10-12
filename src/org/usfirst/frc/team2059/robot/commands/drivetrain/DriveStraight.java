@@ -16,6 +16,7 @@ public class DriveStraight extends CommandBase {
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
+    driveBase.resetGyro();
     driveBase.driveStraight(speed, SmartDashboard.getNumber("GyroCorrection"));
   }
   // Make this return true when this Command no longer needs to run execute()
