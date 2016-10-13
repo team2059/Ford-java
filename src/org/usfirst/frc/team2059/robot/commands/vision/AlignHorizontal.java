@@ -15,7 +15,9 @@ public class AlignHorizontal extends CommandBase {
     return false;
   }
   protected void execute() {
-    driveBase.rotateAngle(error);
+    if(mainArm.getDegrees() >=45){
+      driveBase.rotateAngle(error);
+    }
   }
   protected void end() {
     driveBase.getGyroController().disable();
