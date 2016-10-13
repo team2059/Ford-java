@@ -20,8 +20,9 @@ public class DriveBase extends Subsystem {
   PIDController gyroController = new PIDController(0.07, 0.002, 0.08, new GyroPIDSource(), new MotorsPIDOutputReversed());
   PIDController leftEncoderController = new PIDController(0.02, 0.002, 0.017, leftEncoder, new MotorsPIDOutput());
   double encoderGyroCorrection = 1;
+  boolean driveEnabled = true;
   public void initDefaultCommand() {
-//    setDefaultCommand(new Drive());
+    setDefaultCommand(new Drive());
   }
   public void stopDriving() {
     leftMotorOne.set(0);
@@ -30,10 +31,12 @@ public class DriveBase extends Subsystem {
     rightMotorTwo.set(0);
   }
   public void driveArcade(double x, double y, double z, double sensitivity) {
-    leftMotorOne.set((-y + (x + z)) * sensitivity);
-    leftMotorTwo.set((-y + (x + z)) * sensitivity);
-    rightMotorOne.set((y + (x + z)) * sensitivity);
-    rightMotorTwo.set((y + (x + z)) * sensitivity);
+    if(driveEnabled){
+      leftMotorOne.set((-y + (x + z)) * sensitivity);
+      leftMotorTwo.set((-y + (x + z)) * sensitivity);
+      rightMotorOne.set((y + (x + z)) * sensitivity);
+      rightMotorTwo.set((y + (x + z)) * sensitivity);
+    }
   }
   public void driveStraight(double y, double correction) {
     SmartDashboard.putNumber("GyroAngle", gyro.getAngle());
@@ -52,6 +55,9 @@ public class DriveBase extends Subsystem {
     SmartDashboard.putNumber("GyroAngle", gyro.getAngle());
     gyroController.enable();
     gyroController.setSetpoint(angle);
+  }
+  public void setDriveEnabled(boolean enabled){
+    driveEnabled = enabled;
   }
   public PIDController getLeftController() {
     return leftEncoderController;

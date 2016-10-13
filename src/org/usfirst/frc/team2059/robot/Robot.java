@@ -83,6 +83,7 @@ public class Robot extends IterativeRobot {
     SmartDashboard.putNumber("sonarDistance", CommandBase.mainArm.getSonarDistance());
     SmartDashboard.putNumber("sonarDistanceRaw", CommandBase.mainArm.getSonarDistanceRaw());
     SmartDashboard.putNumber("shooterAngleError", CommandBase.mainArm.getShooterAngleError());
+    SmartDashboard.putNumber("shooterAngleErrorFixed", CommandBase.mainArm.getShooterAngleError()+50);
     SmartDashboard.putNumber("goalDistance", 54 / Math.tan((Math.PI/180) * (60 - CommandBase.visionHelper.getVerticalError())));
     if (Robot.oi.getJoysticks()[1].getRawButton(3)) {
       CommandBase.pneumatics.setArmStopState(true);

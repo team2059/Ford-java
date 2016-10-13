@@ -15,6 +15,7 @@ import org.usfirst.frc.team2059.robot.commands.shooter.SetShooterState;
 import org.usfirst.frc.team2059.robot.commands.shooter.SetArmStopState;
 import org.usfirst.frc.team2059.robot.commands.shooter.ShootAtSpeed;
 import org.usfirst.frc.team2059.robot.commands.shooter.SpinRollers;
+import org.usfirst.frc.team2059.robot.commands.shooter.AlignVertical;
 import org.usfirst.frc.team2059.robot.commands.visionhelper.AlignHorizontal;
 import org.usfirst.frc.team2059.robot.RobotMap;
 /**
@@ -39,6 +40,7 @@ public class OI {
     //joystickButtons[0][0].whenPressed(new LogEncoder());
 //    joystickButtons[0][0].whileHeld(new SetShooterState(true));
     joystickButtons[0][0].whileHeld(new AlignHorizontal());
+    joystickButtons[0][1].whileHeld(new SetShooterState(true));
     joystickButtons[0][2].whileHeld(new SpinRollers(-0.5, false));
     joystickButtons[0][3].whileHeld(new SpinRollers(1, false));
     joystickButtons[0][4].whileHeld(new DriveStraight(0.25));
@@ -46,13 +48,14 @@ public class OI {
     joystickButtons[0][6].whileHeld(new SpinRollers(1, true));
     joystickButtons[0][9].whileHeld(new Drive());
 //    joystickButtons[0][2].whileHeld(new PIDDrive(400));
-    joystickButtons[1][0].whileHeld(new MoveArm(1));
-    joystickButtons[1][1].whileHeld(new MoveArm(-1));
     //joystickButtons[1][2].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCollect));
+    joystickButtons[1][0].whileHeld(new AlignVertical());
     joystickButtons[1][2].whileHeld(new ResetLower(-1));
     joystickButtons[1][3].whileHeld(new SetArmPosition(RobotMap.mainArmPresetTraverse));
     joystickButtons[1][4].whileHeld(new SetArmPosition(RobotMap.mainArmPresetCloseShot));
     joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetLowShot));
+    joystickButtons[1][7].whileHeld(new MoveArm(1));
+    joystickButtons[1][8].whileHeld(new MoveArm(-1));
   }
   public Joystick[] getJoysticks() {
     return joysticks;

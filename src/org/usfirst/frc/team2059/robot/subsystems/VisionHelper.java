@@ -15,8 +15,17 @@ public class VisionHelper {
     contoursTable = NetworkTable.getTable("GRIP/contours");
   }
   public double getCenterContourX(){
+    int highestAreaIndex = 0;
+    int index = 0;
+    double areas[] = linesTable.getNumberArray("area", new double[0]);
+    for(double area : areas){
+       if(area >= areas[highestAreaIndex]){
+          highestAreaIndex=index;
+       }
+       index++;
+    }
      try{
-        return contoursTable.getNumberArray("centerX",new double[0])[0];
+        return contoursTable.getNumberArray("centerX",new double[0])[highestAreaIndex];
      }catch(Exception e){
         return 0;
      }
@@ -53,7 +62,6 @@ public class VisionHelper {
        }
        index++;
     }
-    System.out.println("Highest Length Index:"+ highestLengthIndex);
     try {
       return (x1s[highestLengthIndex]+x2s[highestLengthIndex])/2;
     } catch (Exception e) {
@@ -72,7 +80,6 @@ public class VisionHelper {
        }
        index++;
     }
-    System.out.println("Highest Length Index:"+ highestLengthIndex);
     try {
       return (y1s[highestLengthIndex]+y2s[highestLengthIndex])/2;
     } catch (Exception e) {
@@ -80,7 +87,7 @@ public class VisionHelper {
     }
   }
   public double getHorizontalError() {
-    return (180/Math.PI) * (Math.atan((getCenterContourX() - (RobotMap.imageWidth / 2)) / RobotMap.fWidth));
+    return ((180/Math.PI) * (Math.atan((getCenterContourX() - (RobotMap.imageWidth / 2)) / RobotMap.fWidth)))+3.5;
   }
   public double getVerticalError() {
     return (180/Math.PI) * (Math.atan((getCenterY() - (RobotMap.imageHeight / 2)) / RobotMap.fHeight));

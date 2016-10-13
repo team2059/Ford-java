@@ -16,7 +16,7 @@ public class MainArm extends PIDSubsystem {
   private double min = RobotMap.zeroDegrees;
   private double max = RobotMap.ninetyDegrees;
   public MainArm() {
-    super("MainArm", 0.1, 0.0, 0.002);
+    super("MainArm", 0.08, 0.0, 0.002);
     getPIDController().setContinuous(false);
     setSetpoint(70);
     enable();
@@ -90,8 +90,8 @@ public class MainArm extends PIDSubsystem {
     return false;
   }
   public double getShooterAngleError(){
-    double correctedHeight = RobotMap.goalHeight - 44; //44 is the distance between the ground and the sonar
-    return (180/Math.PI) * Math.atan(correctedHeight/getSonarDistance());
+    double correctedHeight = (RobotMap.goalHeight + 26) - 44; //44 is the distance between the ground and the sonar
+    return (180/Math.PI) * Math.atan(correctedHeight/(getSonarDistance()-5));
   }
   public double getSonarDistanceRaw(){
      return sonar.getVoltage();

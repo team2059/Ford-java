@@ -6,7 +6,10 @@ public class AlignHorizontal extends CommandBase {
   }
   protected void initialize() {
     error = visionHelper.getHorizontalError();
+    driveBase.setDriveEnabled(false);
     driveBase.resetGyro();
+    mainArm.setSetpoint(90);
+    mainArm.enable();
   }
   protected boolean isFinished() {
     return false;
@@ -16,6 +19,8 @@ public class AlignHorizontal extends CommandBase {
   }
   protected void end() {
     driveBase.getGyroController().disable();
+    driveBase.setDriveEnabled(true);
+    mainArm.disable();
   }
   protected void interrupted() {
     end();
