@@ -37,8 +37,7 @@ public class RobotMap {
   public static double fWidth = 483.467261958;
   public static double fHeight = 362.600446468;
   public static int sonar = 2;
-  //public static int goalHeight = 102;
-  public static int goalHeight = 64;
+  public static int goalHeight = 85;
   //Misc
   public static int mainArmPresetCollect = -5;
   public static int mainArmPresetTraverse = 10;

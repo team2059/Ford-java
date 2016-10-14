@@ -90,8 +90,8 @@ public class MainArm extends PIDSubsystem {
     return false;
   }
   public double getShooterAngleError(){
-    double correctedHeight = (RobotMap.goalHeight + 26) - 44; //44 is the distance between the ground and the sonar
-    return (180/Math.PI) * Math.atan(correctedHeight/(getSonarDistance()-5));
+    double correctedHeight = (RobotMap.goalHeight + 24) - 44; //44 is the distance between the ground and the sonar
+    return (180/Math.PI) * Math.atan(correctedHeight/(getSonarDistance()-1));
   }
   public double getSonarDistanceRaw(){
      return sonar.getVoltage();
