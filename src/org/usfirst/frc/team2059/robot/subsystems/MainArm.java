@@ -19,7 +19,8 @@ public class MainArm extends PIDSubsystem {
     super("MainArm", 0.06, 0.0, 0.002);
     getPIDController().setContinuous(false);
     setSetpoint(70);
-    enable();
+//    enable();
+    disable();
   }
   public void initDefaultCommand() {
   }
