@@ -11,12 +11,11 @@ public class AlignVertical extends CommandBase {
   }
   // Called just before this Command runs the first time
   protected void initialize() {
-    mainArm.setSetpoint(mainArm.getShooterAngleError()+50);
-    mainArm.enable();
   }
   // Called repeatedly when this Command is scheduled to run
   protected void execute() {
-    //Move the arm stop
+    mainArm.setSetpoint(mainArm.getShooterAngleError()+50);
+    mainArm.enable();
   }
   // Make this return true when this Command no longer needs to run execute()
   protected boolean isFinished() {

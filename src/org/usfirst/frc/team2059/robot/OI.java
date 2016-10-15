@@ -58,6 +58,7 @@ public class OI {
 //    joystickButtons[1][5].whileHeld(new SetArmPosition(RobotMap.mainArmPresetLowShot));
     joystickButtons[1][7].whileHeld(new MoveArm(1));
     joystickButtons[1][8].whileHeld(new MoveArm(-1));
+    joystickButtons[1][9].whileHeld(new SetArmPosition(110));
   }
   public Joystick[] getJoysticks() {
     return joysticks;

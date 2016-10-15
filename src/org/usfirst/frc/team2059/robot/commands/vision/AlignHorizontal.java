@@ -8,7 +8,7 @@ public class AlignHorizontal extends CommandBase {
     error = visionHelper.getHorizontalError();
     driveBase.setDriveEnabled(false);
     driveBase.resetGyro();
-    mainArm.setSetpoint(90);
+    mainArm.setSetpoint(110);
     mainArm.enable();
   }
   protected boolean isFinished() {
