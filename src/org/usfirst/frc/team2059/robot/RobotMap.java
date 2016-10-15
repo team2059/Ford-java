@@ -32,8 +32,8 @@ public class RobotMap {
   // Camera: Axis M1013
   // FOV = 67deg
   // f = pixelSize/(2*tan(FOV/2))
-  public static double imageWidth = 640;
-  public static double imageHeight = 480;
+  public static double imageWidth = 320;
+  public static double imageHeight = 240;
   public static double fWidth = 483.467261958;
   public static double fHeight = 362.600446468;
   public static int sonar = 2;
